@@ -1,21 +1,17 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="**\*.cs" Exclude="$(GlobalExclude)" />
     <EmbeddedResource Include="**\*.resx" Exclude="$(GlobalExclude)" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.App">
       <Version>1.0.1</Version>
@@ -71,12 +67,8 @@
       <Version>2.2.301</Version>
     </DotNetCliToolReference>
   </ItemGroup>
-
-
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
-<!--
+  <!--
    <Target Name="BeforePublish">
     <Exec Command="bower install" />
     <Exec Command="dotnet bundle" />

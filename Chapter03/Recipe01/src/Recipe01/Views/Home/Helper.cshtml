@@ -1,0 +1,25 @@
+﻿@model Recipe01.Models.Guitar
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>New Guitar Form</legend>
+        <ul class="list-unstyled">
+            <li class="form-group">
+                @Html.LabelFor(m => m.Brand)
+                @Html.TextBoxFor(m => m.Brand)
+            </li>
+            <li class="form-group">
+                @Html.LabelFor(m => m.Model)
+                @Html.TextBoxFor(m => m.Model)
+            </li>
+            <li class="form-group">
+                @Html.LabelFor(m => m.HasWhammyBar)
+                @Html.CheckBoxFor(m => m.HasWhammyBar)
+            </li>
+        </ul>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </fieldset>
+}

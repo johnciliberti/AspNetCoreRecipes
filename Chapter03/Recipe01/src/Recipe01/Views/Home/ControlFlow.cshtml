@@ -1,0 +1,57 @@
+﻿@model Recipe01.Models.Guitar
+@{
+    ViewBag.Title = "Control Flow";
+}
+<h2>Control Flow</h2>
+<h3>if statements</h3>
+<pre>
+@@if (Model.HasWhammyBar)
+{
+    &lt;span&gt;My Guitar has a @@Model.WhammyBarType Whammy Bar&lt;/span&gt;
+}
+else
+{
+    &lt;span&gt;No Whammy bars on this guitar&lt;/span&gt;
+}
+</pre>
+@if (Model.HasWhammyBar)
+{
+    <span>My Guitar has a @Model.WhammyBarType Whammy Bar</span>
+}
+else
+{
+    <span>No Whammy bars on this guitar</span>
+}
+<h3>switch statement</h3>
+<pre>
+@@switch (Model.Brand.ToLower())
+{
+    case "gibson":
+        &lt;span&gt;Slash loves is Gibson Les Paul&lt;/span&gt;
+        break;
+    case "fendor":
+        &lt;span&gt;Stevie Ray Vaughan loved his Fender Stratocaster&lt;/span&gt;
+        break;
+    case "charvel":
+    &lt;span&gt;Warren DeMartini shreds on his Charvel San Dimas &lt;/span&gt;
+        break;
+    default:
+    &lt;span&gt;What kind?&lt;/span&gt;
+        break;
+}
+</pre>
+@switch (Model.Brand.ToLower())
+{
+    case "gibson":
+        <span>Slash loves his Gibson Les Paul</span>
+        break;
+    case "fendor":
+        <span>Stevie Ray Vaughan loved his Fender Stratocaster</span>
+        break;
+    case "charvel":
+        <span>Warren DeMartini shreds on his Charvel San Dimas </span>
+        break;
+    default:
+        <span>What kind?</span>
+        break;
+}
