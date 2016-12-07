@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron">
+    <h1>ASP.NET Core MVC Recipes - Chapter 3</h1>
+    <p class="lead">
+        This project contains examples from recipes 3-2, 3-3,3-4,3-5,3-6,3-7,3-8,3-9, and 3-10
+    </p>
+
+</div>
+<h2>Action Link Examples</h2>
+<div class="row">
+    <div class="col-md-12">
+
+        <h3>3-2. Create an Action Link</h3>
+        <pre>
+            @@Html.ActionLink("Link to self",null)
+        </pre>
+        @Html.ActionLink("Link to self", null)
+
+        <pre>
+            @@Html.ActionLink("Link to other action in same controller","about")
+        </pre>
+        @Html.ActionLink("Link to other action in same controller", "about")
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-3. Create an Action Link to another controller</h3>
+
+        <pre>
+            @@Html.ActionLink("Action Link to another controller", "somewhere", "Away")
+        </pre>
+        @Html.ActionLink("Action Link to another controller", "somewhere", "Away")
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-4. Create an Action Link to controller in area</h3>
+
+        <pre>
+            @@Html.ActionLink("Link to Area", "InHappyLand", "ControllerInArea",new { Area = "FarFarAway" })
+        </pre>
+        @Html.ActionLink("Link to Area", "InHappyLand", "ControllerInArea", new { Area = "FarFarAway" })
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-5. Create an Action Link with custom HTML Attributes</h3>
+
+        <pre>
+            @@Html.ActionLink("This link looks like a button", "Contact", "Home", null, new { @@class="btn btn-primary"})
+        </pre>
+        @Html.ActionLink("This link looks like a button", "Contact", "Home", null, new { @class = "btn btn-primary" })
+
+        <pre>
+            @@Html.ActionLink("This link looks like a button", "Contact", "Home", null, new { @@class = "btn btn-primary", title="Click to contact me" })
+        </pre>
+        @Html.ActionLink("This link looks like a button", "Contact", "Home", null, new { @class = "btn btn-primary", title = "Click to contact me" })
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-6. Create an Action Link with SSL</h3>
+
+        <pre>
+            @@Html.ActionLink("Secure Page", "Contact", "Home", "https", "mywebsite", null, null, null)
+        </pre>
+        @Html.ActionLink("Secure Page", "Contact", "Home", "https", "mywebsite", null, null, null)
+
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-7. Create an Action Link with SSL using custom helper</h3>
+        <p>See the class defined in  <em>Infrastruture/MyHelperLinkExtentions.cs</em> for the rest of the solution</p>
+
+
+        <pre>
+            @@Html.SslActionLink("Secure Page using custom helper", "Contact", "Home")
+        </pre>
+        @Html.SslActionLink("Secure Page using custom helper", "Contact", "Home")
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-8. Create an Action Link with a fragment</h3>
+        <pre>
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "email", null, null)
+        </pre>
+        @Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "Email", null, null)
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-9. Create an Action Link that includes an image</h3>
+        <pre>
+            &lt;a href="@@Url.Action("Contact", "Home")"&gt;
+               &lt;img src="~/images/3legdog.jpg" /&gt;
+            &lt;/a&gt;
+        </pre>
+        <a href="@Url.Action("Contact", "Home")">
+            <img src="~/images/3legdog.jpg" />
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>3-10. Creating an Image Link Using a Bootstrap Glyphicon</h3>
+        <pre>
+            &lt;a href="@@Url.Action("Contact", "Home")"&gt;
+               &lt;img src="~/images/3legdog.jpg" /&gt;
+            &lt;/a&gt;
+        </pre>
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group">
+                <a href="@Url.Action("Storage", "Home")" class="btn btn-default">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                </a>
+                <a href="@Url.Action("Alerts", "Home")" class="btn btn-default">
+                    <span class="glyphicon glyphicon-bell"></span>
+                </a>
+                <a href="@Url.Action("Cart", "Home")" class="btn btn-default">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </a>
+            </div>
+
+        </div>
+</div>
+    </div>
