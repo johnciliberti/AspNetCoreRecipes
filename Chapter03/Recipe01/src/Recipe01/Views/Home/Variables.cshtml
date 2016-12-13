@@ -1,0 +1,41 @@
+﻿@model Recipe01.Models.Guitar
+@{
+    ViewBag.Title = "Control Flow";
+}
+<h2>Variables</h2>
+<h3>Print a variable</h3>
+<pre>&lt;span&gt;It is now @@DateTime.Now&lt;/span&gt;</pre>
+<span>It is now @DateTime.Now</span>
+
+<h3>Print a date with a format string</h3>
+<pre>&lt;span&gt;It is now @@DateTime.Now.ToString("D")&lt;/span&gt;</pre>
+<span>It is now @DateTime.Now.ToString("D")</span>
+
+<h3>Display the results of a method</h3>
+<pre>&lt;span&gt;1973 was a leap year =  @@DateTime.IsLeapYear(1973)&lt;/span&gt;</pre>
+<span>1973 was a leap year =  @DateTime.IsLeapYear(1973)</span>
+<br />
+
+<h3>Display the results of a C# Expression</h3>
+<pre>&lt;span&gt;2 + 2 = @@(2+2)&lt;/span&gt;</pre>
+<span>2 + 2 = @(2 + 2)</span>
+<br />
+
+<h3>Display model data</h3>
+<pre>&lt;span&gt;My new guitar is a @@Model.Brand @@Model.Model &lt;/span&gt;</pre>
+<span>My new guitar is a  @Model.Brand @Model.Model </span>
+<br />
+
+<h3>HTML Encoded by default</h3>
+<pre>&lt;span&gt;Here is how I describe my guitar @@Model.Description &lt;/span&gt;</pre>
+<span>My new guitar is a  @Model.Description</span>
+<br />
+
+<h3>Use Raw to render HTML</h3>
+<pre>&lt;span&gt;Here is how I describe my guitar @@Model.Description &lt;/span&gt;</pre>
+<span>My new guitar is a  @Html.Raw(Model.Description)</span>
+<br />
+
+@section scripts{
+<script src="~/scripts/blinkpolyfil.js"></script>
+}

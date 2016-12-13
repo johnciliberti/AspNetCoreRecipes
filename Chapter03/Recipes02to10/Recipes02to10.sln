@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25914.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D008EF2C-E499-4823-B847-85B0A7973622}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes02to10", "src\Recipes02to10\Recipes02to10.csproj", "{4A52A9C2-7363-4647-A9FB-0FBE96769860}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A52A9C2-7363-4647-A9FB-0FBE96769860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A52A9C2-7363-4647-A9FB-0FBE96769860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A52A9C2-7363-4647-A9FB-0FBE96769860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A52A9C2-7363-4647-A9FB-0FBE96769860}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A52A9C2-7363-4647-A9FB-0FBE96769860} = {D008EF2C-E499-4823-B847-85B0A7973622}
+	EndGlobalSection
+EndGlobal

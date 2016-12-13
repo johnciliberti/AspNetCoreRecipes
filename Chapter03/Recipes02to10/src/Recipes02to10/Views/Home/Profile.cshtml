@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit your profile";
+}
+<div class="tabbable tabs-left" id="tabMenu">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#BasicInfo" data-toggle="tab">Personal Info</a></li>
+        <li><a href="#Avatar" data-toggle="tab">Your Avatar</a></li>
+        <li><a href="#Bio" data-toggle="tab">Your Bio &amp; Influences</a></li>
+        <li><a href="#Talents" data-toggle="tab">Your Talents</a></li>
+        <li><a href="#Contact" data-toggle="tab">Contact Info</a></li>
+        <li><a href="#Privacy" data-toggle="tab">Privacy Settings</a></li>
+        <li><a href="#Email" data-toggle="tab">Email Settings</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="BasicInfo">
+            <h3>Basic Info</h3>
+        </div>
+        <div class="tab-pane" id="Avatar">
+            <h3>Avatar</h3>
+        </div>
+        <div class="tab-pane" id="Bio">
+            <h3>Your bio</h3>
+        </div>
+        <div class="tab-pane" id="Talents">
+            <h3>Your amazing talents</h3>
+        </div>
+        <div class="tab-pane" id="Contact">
+            <h3>Contact Info</h3>
+        </div>
+        <div class="tab-pane" id="Privacy">
+            <h3>Privacy Settings</h3>
+        </div>
+        <div class="tab-pane" id="Email">
+            <h3>Email Settings</h3>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script src="/js/home/editprofile.js"></script>
+}
