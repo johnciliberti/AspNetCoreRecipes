@@ -1,0 +1,32 @@
+﻿@model Recipe12.Models.LoginViewModel
+<h1>Recipe 3-13 Templated HTML Helpers</h1>
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmailAddress)
+        @Html.EditorFor(m => m.EmailAddress, "EmailAddress",
+            new
+            {
+                htmlAttributes =
+                  new { placeholder = "Enter email", @class = "form-control" }
+            })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.EditorFor(m => m.Password, "Password",
+            new
+            {
+                htmlAttributes =
+                  new { placeholder = "Enter password", @class = "form-control" }
+            })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.EditorFor(m => m.RememberMe)
+            Remember Me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+}

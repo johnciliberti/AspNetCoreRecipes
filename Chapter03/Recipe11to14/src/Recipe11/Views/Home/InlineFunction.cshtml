@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Html
+<h1>Recipe 3-14 Creating an inline function in a razor view</h1>
+@functions
+{
+    IHtmlContent warning(string message)
+    {
+        return Html.Raw(string.Format(@"<p class=""alert alert-warning"">{0}</p>", message));
+    }
+}
+
+
+
+@Html.Label("", "Enter your disposition below")
+@warning("Anything you type can and will be used against you in a court of law")
+@Html.TextArea("Disposition", new { @class = "form-control" })
+
+<br />
+@Html.Label("", "Enter your plea below")
+@warning("If you plead guilty you will be taken to a high security prison!")
+@Html.TextArea("Plea", new { @class = "form-control" })

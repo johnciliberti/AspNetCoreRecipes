@@ -1,0 +1,23 @@
+﻿@model Recipe12.Models.LoginViewModel
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmailAddress)
+        @Html.TextBoxFor(m => m.EmailAddress,
+          new { placeholder = "Enter email", @class = "form-control", type = "email" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password,
+          new { placeholder = "Password", @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.RememberMe)
+            Remember Me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+}
