@@ -1,0 +1,26 @@
+﻿@model Recipe01.Models.Guitar
+@{
+    ViewBag.Title = "Explicite Markup";
+}
+
+<h1>Explicit Markup</h1>
+<pre>
+@@if (12 == 12)
+{
+    @@: I have @@Model.Strings.Count in my guitar case
+}
+<text>
+    Only the best guitar players play @@Model.Brand
+    and we know who we are.
+</text>
+
+</pre>
+@if (12 == 12)
+{
+    @: I have @Model.Strings.Count in my guitar case
+}
+<text>
+    Only the best guitar players play @Model.Brand
+    and we know who we are.
+</text>
+

@@ -1,0 +1,1 @@
+Recipe 1 creates a web site that contains a referance guide for ASP.NET Core HTML Helpers.

@@ -1,0 +1,26 @@
+﻿<h1>Sample for Recipe 3-11</h1>
+This form uses standard HTML Helpers to build a form.
+<h2>Please Log-in</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.Label("exampleInputEmail", "Email address")
+        @Html.TextBox("exampleInputEmail", "",
+         new { placeholder = "Enter email", @class = "form-control", type = "email" })
+    </div>
+    <div class="form-group">
+        @Html.Label("exampleInputPassword", "Password")
+        @Html.Password("exampleInputPassword", "",
+         new { placeholder = "Password", @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBox("RememberMe", false)
+            Remember Me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+}
