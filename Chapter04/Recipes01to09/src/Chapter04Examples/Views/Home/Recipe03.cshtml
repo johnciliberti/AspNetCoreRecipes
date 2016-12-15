@@ -1,0 +1,32 @@
+﻿@model Chapter04.Models.Recipe03.Contact
+<h2>Chapter 04 Recipe 03</h2>
+<h3>
+    Contact Form
+</h3>
+
+<hr />
+<form asp-action="Recipe03" asp-anti-forgery="true" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" placeholder="Enter your Email" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" class="form-control" placeholder="Enter your Phone Number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FavoriteColor"></label>
+        <input asp-for="FavoriteColor" class="form-control"
+               placeholder="Select your favorite color" type="color" />
+    </div>
+    <div class="checkbox">
+        <label asp-for="AllowContactAboutOffers">
+            <input asp-for="AllowContactAboutOffers" /> Contact me about offers
+        </label>
+    </div>
+    <input type="submit" value="Save Contact Info" class="btn btn-primary" />
+</form>

@@ -1,0 +1,23 @@
+﻿@model Chapter04.Models.Recipe04.Tristate
+<h2>Chapter 04 - Recipe 04</h2>
+@if (!@Model.NullableBoolValue.HasValue)
+{
+    <div class="alert alert-warning">NullableBoolValue = No Value</div>
+}
+else
+{
+    <div class="alert alert-info">
+        NullableBoolValue = @Model.NullableBoolValue.ToString()
+    </div>
+}
+<form  method="post">
+    <div class="form-group">
+        <label asp-for="NullableBoolValue"></label>
+        <select asp-for="NullableBoolValue" class="form-control">
+            <option value="">None Selected</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+    </div>
+    <input type="submit" name="save" value="Save" class="btn btn-default" />
+</form>
