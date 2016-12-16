@@ -1,6 +1,7 @@
 ﻿using Chapter04.Models.Recipe03;
 using Chapter04.Models.Recipe04;
 using Chapter04.Models.Recipe05;
+using Contact6 = Chapter04.Models.Recipe06.Contact;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace Chapter04.Controllers
 
         public IActionResult Recipe05()
         {
-            var model = new GuitarBrandViewModel { Brands=_items};
+            var model = new GuitarBrandViewModel { Brands = _items };
             return View(model);
         }
 
@@ -97,9 +98,28 @@ namespace Chapter04.Controllers
 
         #endregion
 
+        #region Recipe 06
+        public IActionResult Recipe06()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Recipe06(Contact6 model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("Recipe06Thanks");
+            }
+            return View();
+        }
+        #endregion
+
+
         public IActionResult Error()
         {
             return View();
         }
     }
+    
 }
