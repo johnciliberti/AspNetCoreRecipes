@@ -1,0 +1,10 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=.\\sql2014;Database=Mvc6RecipesSharedDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "EntityFramework": {
+    "MoBContext": {
+      "ConnectionString": "Name=Data:DefaultConnection:ConnectionString"
+    }
+  }
+}
