@@ -1,0 +1,22 @@
+﻿@model Chapter04.Models.Recipe05.GuitarBrandViewModel
+<h2>Chapter 04 - Recipe 05</h2>
+@if (Model.SelectedBrand == null)
+{
+    <div class="alert alert-warning">
+        No Brand has been selected
+    </div>
+}
+else
+{
+    <div class="alert alert-success">
+        @Model.SelectedBrand.Name <text>has been selected</text>
+    </div>
+}
+
+<form asp-action="Recipe05" method="post">
+    <div class="form-group">
+        <label asp-for="SelectedBrandId"></label>
+        <select asp-for="SelectedBrandId" asp-items="Model.Brands" class="form-control"></select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-default" />
+</form>
