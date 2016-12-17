@@ -2,6 +2,7 @@
 using Chapter04.Models.Recipe04;
 using Chapter04.Models.Recipe05;
 using Contact6 = Chapter04.Models.Recipe06.Contact;
+using Chapter04.Models.Recipe07;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -112,6 +113,20 @@ namespace Chapter04.Controllers
                 return View("Recipe06Thanks");
             }
             return View();
+        }
+        #endregion
+
+        #region Recipe 07
+        public IActionResult Recipe07()
+        {
+            var model = new FormWithCacheViewModel();
+            model.MyListIsCached = "Nothing";
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Recipe07(FormWithCacheViewModel model)
+        {
+            return View(model);
         }
         #endregion
 

@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using AspNetCoreMvcRecipes.Shared.DataAccess;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Chapter04.Controllers
+namespace Chapter04.ViewComponents
 {
-    
-
-    public class Recipe07Controller : Controller
+    public class LookupListViewComponent : ViewComponent
     {
-        private readonly MoBContext _db;
-        public Recipe07Controller(MoBContext db)
+        private readonly MoBContext _dbContext;
+
+        public LookupListViewComponent(MoBContext dbContext)
         {
-            _db = db;
+            _dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
-            var query = from a in _db.GenreLookUps
+            var query = from a in _dbContext.GenreLookUps
                         select new SelectListItem
                         {
                             Text = a.GenreName,
@@ -28,7 +24,6 @@ namespace Chapter04.Controllers
                         };
 
             return View(query.ToList());
-
         }
     }
 }
