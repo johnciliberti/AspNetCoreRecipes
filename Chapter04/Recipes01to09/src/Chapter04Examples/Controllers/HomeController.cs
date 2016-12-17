@@ -130,6 +130,21 @@ namespace Chapter04.Controllers
         }
         #endregion
 
+        #region Recipe 08
+        public IActionResult Recipe08()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Recipe 09
+        public IActionResult Recipe09()
+        {
+            return View();
+        }
+
+        #endregion
+
 
         public IActionResult Error()
         {
