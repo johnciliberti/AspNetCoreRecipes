@@ -1,0 +1,18 @@
+﻿@model Chapter04.Models.Recipe07.FormWithCacheViewModel
+<h2>Chapter 04 - Recipe 07</h2>
+
+Selected Value : @Model.MyListIsCached
+
+<form  method="post">
+    <div class="form-group">
+        <label asp-for="MyListIsCached">
+        </label>
+        <select asp-for="MyListIsCached" class="form-control">
+            <cache>
+                <!--This section is cached-->
+                @await Component.InvokeAsync("LookupList")
+            </cache>
+        </select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+</form>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shared.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.ArtistRepository">
+            <summary>
+            Repository that simplifies accessing and modifing artist information
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.ArtistRepository.GetNewArtists">
+            <summary>
+            Get a list of the last 20 artists to register for the site.
+            </summary>
+            <returns>List of Artists</returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Query(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Allows you to query an entity
+            </summary>
+            <param name="filter">Lambda expression for filtering rows</param>
+            <param name="orderBy">Lambda expression for sorting</param>
+            <param name="includeProperties">Add an argument for each property that should be eager loaded</param>
+            <param name="page">When pageSize is greater then 0 then will return a particular data page</param>
+            <param name="pageSize">Number of items per page. 0 will return all data without pages</param>
+            <returns>An IEnumerable of the type or null if no data is found</returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.GetEntityById(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Gets the first entity in the set using the provided lambda expression
+            </summary>
+            <param name="filter">A lambda expression that should return a single result</param>
+            <returns>An instance of the entity or null</returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Insert(`0)">
+            <summary>
+            Insert a new entity
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Update(`0)">
+            <summary>
+            Update entity
+            </summary>
+            <param name="entityToUpdate"></param>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Delete(`0)">
+            <summary>
+            Delete the entity
+            </summary>
+            <param name="entityToDelete"></param>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.Util.DebugDataSubstitute">
+            <summary>
+            Helpers that can be used to aid in local testing where entire media base is not available on the local machine
+            </summary>
+        </member>
+    </members>
+</doc>

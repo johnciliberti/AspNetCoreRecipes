@@ -1,0 +1,35 @@
+﻿@model Chapter04.Models.Recipe01.Contact
+<h1>Recipe 01</h1>
+This section compares HTML Helpers to Tag Helpers
+<h2>Listing 4.1 - Comparing HTML Helpers to Tag Helpers for creating action links</h2>
+<p>
+    This link is created using an HTML Helper<br />
+    <!-- Html Helper creates a link to the Index action on the home controller -->
+    @Html.ActionLink("Go to home page", "Index", "Home", null, new { @class = "h4" })
+</p>
+<br />
+<p>
+    This link is created using a Tag Helper<br />
+    <!-- Tag Helper creates a link to the Index action on the home controller -->
+    <a asp-controller="Home" asp-action="Index" class="h4">Go to home page</a>
+</p>
+
+<h2>Listing 4.2 Comparing HTML Helpers to Tag Helpers for creating forms</h2>
+Here is a form created with HTML Helper<br />
+<!-- Simple Form Created using HTML Helpers -->
+@using (Html.BeginForm("Index", "Home"))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name,
+    new { placeholder = "Enter your Name", @class = "form-control" })
+}
+
+<br />
+Here is the same form created using Tag Helpers
+<br />
+<!-- Simple Form Created using Tag Helpers -->
+<form asp-action="Index" asp-controller="Home" asp-anti-forgery="true">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+</form>
