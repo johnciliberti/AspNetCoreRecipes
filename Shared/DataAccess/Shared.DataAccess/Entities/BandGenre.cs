@@ -7,7 +7,7 @@
 
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // BandGenre
     public partial class BandGenre

@@ -1,16 +1,9 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
-
 using Microsoft.EntityFrameworkCore;
 using System;
 
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     public interface IMoBContext : IDisposable
     {
@@ -64,7 +57,7 @@ namespace Mvc6Recipes.Shared.DataAccess
 
         DbSet<GenreLookUp> GenreLookUps { get; set; } // GenreLookUp
 
-        DbSet<Medium> Media { get; set; } // Media
+        DbSet<Media> Media { get; set; } // Media
 
         DbSet<Message> Messages { get; set; } // Message
 

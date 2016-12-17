@@ -1,12 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 
-using Microsoft.Extensions.Configuration;
-
-
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     public partial class MoBContext : DbContext, IMoBContext
     {
+        public MoBContext(DbContextOptions<MoBContext> options)
+            : base(options) { }
+        public MoBContext() { }
+
+        // note for EF 7, the name defined here is used as the DB table name
+        // EF 7 does not allow you to change the pluralization conventions
+
         public DbSet<Alert> Alerts { get; set; } // Alert
 
         public DbSet<AlertSubscription> AlertSubscriptions { get; set; } // AlertSubscription
@@ -57,7 +61,7 @@ namespace Mvc6Recipes.Shared.DataAccess
 
         public DbSet<GenreLookUp> GenreLookUps { get; set; } // GenreLookUp
 
-        public DbSet<Medium> Media { get; set; } // Media
+        public DbSet<Media> Media { get; set; } // Media
 
         public DbSet<Message> Messages { get; set; } // Message
 
@@ -90,24 +94,39 @@ namespace Mvc6Recipes.Shared.DataAccess
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
             // also has a property called Id, EF can't figure out which one to use
             builder.Entity<Artist>().HasKey(a => a.ArtistId);
             builder.Entity<Artist>().Ignore(a => a.Id);
+
+            // These are computed fields that are not present in the database
             builder.Entity<Artist>().Ignore(a => a.AvatarUrlSample);
 
-            // does not match the convention so need to add custom key
+            // Many to many relationships that could not be determined automatically
+            builder.Entity<Artist>().HasMany(a => a.WebpagesRoles);
+            builder.Entity<WebpagesRoles>().HasMany(a => a.Artists);
+            builder.Entity<ArtistProfile>().HasKey(a => a.ArtistId);
+
+            //does not match the convention so need to add custom primary key
             builder.Entity<ArtistSkill>().HasKey(a => a.ArtistTalentId);
+            builder.Entity<BannedEmailAddress>().HasKey(a => a.EmailAddress);
+            builder.Entity<EmailOptOut>().HasKey(a => a.EmailAddress);
+            builder.Entity<WebpagesMembership>().HasKey(a => a.UserId);
+            builder.Entity<WebpagesOAuthMembership>().HasKey(a => new { a.Provider, a.ProviderUserId }); // composite primary key
+            builder.Entity<WebpagesRoles>().HasKey(a => a.RoleId);
+
             base.OnModelCreating(builder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("config.json");
-            var config = builder.Build();
-            var constr = config["ConnectionStrings:DefaultConnection"];
-            options.UseSqlServer(constr);
             base.OnConfiguring(options);
+            //var builder = new ConfigurationBuilder()
+            //    .AddJsonFile("ConnStrings.json");
+            //var config = builder.Build();
+            //var constr = config["ConnectionStrings:DefaultConnection"];
+            //options.UseSqlServer(constr);
+            //base.OnConfiguring(options);
 
         }
 

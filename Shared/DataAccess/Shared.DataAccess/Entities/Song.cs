@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // Song
     public partial class Song
@@ -49,7 +49,7 @@ namespace Mvc6Recipes.Shared.DataAccess
         public virtual ICollection<SongComment> SongComments { get; set; } // SongComment.FK_SongComment_Song
 
         // Foreign keys
-        public virtual Medium Medium { get; set; } // FK_Song_Media
+        public virtual Media Medium { get; set; } // FK_Song_Media
 
         public Song()
         {

@@ -1,19 +1,11 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
-
 using System;
 using System.Collections.Generic;
 
-//using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // Media
-    public partial class Medium
+    public partial class Media
     {
         public int MediaId { get; set; } // MediaId (Primary key)
 
@@ -63,7 +55,7 @@ namespace Mvc6Recipes.Shared.DataAccess
         // Foreign keys
         public virtual Artist Artist { get; set; } // FK_Media_ToTable
 
-        public Medium()
+        public Media()
         {
             IsCloudBlob = false;
             MediaType = 0;

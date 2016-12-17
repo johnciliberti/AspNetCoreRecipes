@@ -1,8 +1,8 @@
 ﻿using System;
-using Mvc6Recipes.Shared.DataAccess;
+using AspNetCoreMvcRecipes.Shared.DataAccess;
 using System.Collections.Generic;
 
-namespace Mvc6Recipes.Shared.DataAccess.Facade
+namespace AspNetCoreMvcRecipes.Shared.DataAccess.Facade
 {
     public class CollaborationSpaceSearchResult
     {

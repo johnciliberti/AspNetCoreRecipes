@@ -73,5 +73,8 @@
       <Version>2.2.301</Version>
     </DotNetCliToolReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Shared\DataAccess\Shared.DataAccess\Shared.DataAccess.csproj" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

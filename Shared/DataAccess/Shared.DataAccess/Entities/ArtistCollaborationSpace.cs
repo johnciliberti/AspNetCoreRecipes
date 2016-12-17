@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // ArtistCollaborationSpaces
     public partial class ArtistCollaborationSpace

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     public interface IUnitOfWork : IDisposable
     {

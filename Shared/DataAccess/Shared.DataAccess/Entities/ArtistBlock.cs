@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // ArtistBlock
     public partial class ArtistBlock

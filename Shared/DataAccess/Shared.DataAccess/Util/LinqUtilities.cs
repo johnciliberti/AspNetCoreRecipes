@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Mvc6Recipes.Shared.DataAccess.Util
+namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
 {
     public static class LinqUtilities
     {

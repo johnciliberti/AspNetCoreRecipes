@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // CollaborationSpaceFile
     public partial class CollaborationSpaceFile
@@ -30,7 +30,7 @@ namespace Mvc6Recipes.Shared.DataAccess
         // Foreign keys
         public virtual CollaborationSpace CollaborationSpace { get; set; } // FK_CollaborationSpaceFile_CollaborationSpace
 
-        public virtual Medium Medium { get; set; } // FK_CollaborationSpaceFile_Media
+        public virtual Media Medium { get; set; } // FK_CollaborationSpaceFile_Media
 
         public CollaborationSpaceFile()
         {

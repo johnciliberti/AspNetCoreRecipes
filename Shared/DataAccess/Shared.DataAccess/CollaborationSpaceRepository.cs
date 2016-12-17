@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Mvc6Recipes.Shared.DataAccess.Facade;
-using Mvc6Recipes.Shared.DataAccess.Util;
+using AspNetCoreMvcRecipes.Shared.DataAccess.Facade;
+using AspNetCoreMvcRecipes.Shared.DataAccess.Util;
 using System.Linq;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     public class CollaborationSpaceRepository : Repository<CollaborationSpace>
     {
@@ -78,18 +78,18 @@ namespace Mvc6Recipes.Shared.DataAccess
             // First round trip to the database that runs a query to
             // get the count
             resultsFound = collabSpacesQuery==null ? 0 : collabSpacesQuery.Count();
-            int skip = getSkip(filter.CurrentPageNumber, filter.ItemsPerPage);
+            int skip = GetSkip(filter.CurrentPageNumber, filter.ItemsPerPage);
 
             //several EF bugs causing incorrect results here
             // https://github.com/aspnet/EntityFramework/issues/1851
             collabSpacesQuery = collabSpacesQuery.OrderByText(filter.SortExpression).Skip(skip).Take(filter.ItemsPerPage);
 
             // second round trip to the database retrieves (count) 10 records
-            return collabSpacesQuery == null ?  null : collabSpacesQuery.ToList();
+            return collabSpacesQuery?.ToList();
 
         }
 
-        private int getSkip(int page, int count)
+        private int GetSkip(int page, int count)
         {
             if (page < 2)
             {

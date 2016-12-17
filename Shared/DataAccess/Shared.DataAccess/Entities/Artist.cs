@@ -5,13 +5,13 @@
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
 
-using Mvc6Recipes.Shared.DataAccess.Util;
+using AspNetCoreMvcRecipes.Shared.DataAccess.Util;
 using System;
 using System.Collections.Generic;
 
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
-namespace Mvc6Recipes.Shared.DataAccess
+namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     // Artist
     public partial class Artist
@@ -97,7 +97,7 @@ namespace Mvc6Recipes.Shared.DataAccess
 
         public virtual ICollection<CollaborationSpaceInvite> CollaborationSpaceInvites { get; set; } // CollaborationSpaceInvite.FK_CollaborationSpaceInvite_Artist
 
-        public virtual ICollection<Medium> Media { get; set; } // Media.FK_Media_ToTable
+        public virtual ICollection<Media> Media { get; set; } // Media.FK_Media_ToTable
 
         public virtual ICollection<Message> Messages { get; set; } // Message.FK_Message_Artist
 
@@ -111,7 +111,7 @@ namespace Mvc6Recipes.Shared.DataAccess
 
         public Artist()
         {
-            CreateDate = System.DateTime.Now;
+            CreateDate = DateTime.Now;
             ModifiedDate = System.DateTime.Now;
             ProfilePrivacyLevel = 0;
             ContactPrivacyLevel = 0;
@@ -133,7 +133,7 @@ namespace Mvc6Recipes.Shared.DataAccess
             CollaborationSpaceAlerts = new List<CollaborationSpaceAlert>();
             CollaborationSpaceComments = new List<CollaborationSpaceComment>();
             CollaborationSpaceInvites = new List<CollaborationSpaceInvite>();
-            Media = new List<Medium>();
+            Media = new List<Media>();
             Messages = new List<Message>();
             MessageRecipients = new List<MessageRecipient>();
             PlayLists = new List<PlayList>();

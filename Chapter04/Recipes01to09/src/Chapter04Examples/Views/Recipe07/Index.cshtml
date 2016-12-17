@@ -1,0 +1,6 @@
+﻿@model List<SelectListItem>
+<h2>Chapter 04 - Recipe 07</h2>
+@foreach (var item in Model)
+{
+    <option value="@item.Value">@item.Text</option>
+}

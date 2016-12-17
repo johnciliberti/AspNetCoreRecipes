@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mvc6Recipes.Shared.DataAccess.Facade
+namespace AspNetCoreMvcRecipes.Shared.DataAccess.Facade
 {
     public class CollaborationSpaceSearchParams
     {

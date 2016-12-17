@@ -1,6 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup Label="Configuration">
+    <DocumentationFile>Shared.DataAccess.xml</DocumentationFile>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageName>AspNetCoreMvcRecipes.Shared.DataAccess</PackageName>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Author>John Ciliberti</Author>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
@@ -10,8 +16,8 @@
     <Content Include="config.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.0.0" />
     <PackageReference Include="NETStandard.Library" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>

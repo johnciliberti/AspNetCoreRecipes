@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace Mvc6Recipes.Shared.DataAccess.Util
+namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
 {
     /// <summary>
     /// Helpers that can be used to aid in local testing where entire media base is not available on the local machine
