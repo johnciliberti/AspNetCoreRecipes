@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Chapter01.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Chapter01.Controllers
 {
@@ -47,6 +49,14 @@ namespace Chapter01.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public IActionResult GuitarCase()
+        {
+            var model = new GuitarCaseModel();
+            model.Cables = new List<GuitarCable> { new GuitarCable { Brand = "ACME", Length = 12 } };
+            model.MyGuitar = new Guitar { BodyStyle = "Strat", Brand = "Fendor", Finish = "White" };
+            return View(model);
         }
 
         public IActionResult Error()
