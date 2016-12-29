@@ -27,7 +27,7 @@ namespace Chapter04.Controllers
             return View();
         }
 
-        #region Recipe 3
+        #region Recipe 03
         public IActionResult Recipe03()
         {
             var model = new Contact { AllowContactAboutOffers = true };
@@ -47,7 +47,7 @@ namespace Chapter04.Controllers
         }
         #endregion
 
-        #region Recipe 4
+        #region Recipe 04
         public IActionResult Recipe04()
         {
             Tristate model = new Tristate { NullableBoolValue = null };
@@ -62,7 +62,7 @@ namespace Chapter04.Controllers
         }
         #endregion
 
-        #region Recipe 5
+        #region Recipe 05
         private List<SelectListItem> _items = new List<SelectListItem>
         {
            new SelectListItem { Value="", Text="Please Select a Brand"},
