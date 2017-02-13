@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Server=.;Database=Chapter06Recipe05;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer -o "Entities" -v
