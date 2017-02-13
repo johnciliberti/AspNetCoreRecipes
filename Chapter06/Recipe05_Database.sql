@@ -1,0 +1,68 @@
+USE [master]
+GO
+CREATE DATABASE [Chapter06Recipe05]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Recipe06Recipe05', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Recipe06Recipe05.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Recipe06Recipe05_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\Recipe06Recipe05_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+
+
+USE [Chapter06Recipe05]
+GO
+
+CREATE TABLE [dbo].[Bands](
+	[BandId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Genre] [varchar](50) NULL,
+ CONSTRAINT [PK_Bands] PRIMARY KEY CLUSTERED 
+(
+	[BandId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Venues](
+	[VenueId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Address] [varchar](100) NULL,
+	[City] [varchar](100) NULL,
+	[ZipCode] [varchar](10) NULL,
+ CONSTRAINT [PK_Venues] PRIMARY KEY CLUSTERED 
+(
+	[VenueId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Events](
+	[EventId] [int] IDENTITY(1,1) NOT NULL,
+	[Description] [varchar](500) NOT NULL,
+	[BandId] [int] NOT NULL,
+	[VenueId] [int] NOT NULL,
+	[EventDate] [smalldatetime] NOT NULL,
+ CONSTRAINT [PK_Events] PRIMARY KEY CLUSTERED 
+(
+	[EventId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Events]  WITH CHECK ADD  CONSTRAINT [FK_Events_Events_Bands] FOREIGN KEY([BandId])
+REFERENCES [dbo].[Bands] ([BandId])
+GO
+
+ALTER TABLE [dbo].[Events] CHECK CONSTRAINT [FK_Events_Events_Bands]
+GO
+
+ALTER TABLE [dbo].[Events]  WITH CHECK ADD  CONSTRAINT [FK_Events_Venues] FOREIGN KEY([VenueId])
+REFERENCES [dbo].[Venues] ([VenueId])
+GO
+
+ALTER TABLE [dbo].[Events] CHECK CONSTRAINT [FK_Events_Venues]
+GO
+
