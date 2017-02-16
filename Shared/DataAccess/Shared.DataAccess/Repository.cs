@@ -6,6 +6,11 @@ using System.Linq.Expressions;
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
+    /// <summary>
+    /// The Generic Repository class exposes a set of methods that allow 
+    /// create, read, update, and delete (CRUD) operations to be performed for any of the entities in our model. 
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class Repository<TEntity> where TEntity : class
     {
         // variables hold the database context and entity set
@@ -13,10 +18,14 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         internal MoBContext _context;
         internal DbSet<TEntity> _dbSet;
 
+        /// <summary>
+        /// Constructor for repository
+        /// </summary>
+        /// <param name="context">DB Context</param>
         public Repository(MoBContext context)
         {
-            this._context = context;
-            this._dbSet = context.Set<TEntity>();
+            _context = context;
+            _dbSet = context.Set<TEntity>();
         }
 
 
@@ -25,7 +34,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// </summary>
         /// <param name="filter">Lambda expression for filtering rows</param>
         /// <param name="orderBy">Lambda expression for sorting</param>
-        /// <param name="includeProperties">Add an argument for each property that should be eager loaded</param>
+        /// <param name="includedProperties">Add an argument for each property that should be eager loaded</param>
         /// <param name="page">When pageSize is greater then 0 then will return a particular data page</param>
         /// <param name="pageSize">Number of items per page. 0 will return all data without pages</param>
         /// <returns>An IEnumerable of the type or null if no data is found</returns>
@@ -65,16 +74,14 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         }
 
         /// <summary>
-        /// Gets the first entity in the set using the provided lambda expression
+        /// Gets the first entity an object as key
         /// </summary>
-        /// <param name="filter">A lambda expression that should return a single result</param>
+        /// <param name="key">The key of the object you are looking for</param>
         /// <returns>An instance of the entity or null</returns>
-        public virtual TEntity GetEntityById(Expression<Func<TEntity, bool>> filter) { // TODO Rename to GetEntityByKey
-            // not sure where the f#### dbset.Find is
+        public virtual TEntity GetEntityByKey(object key)
+        {
 
-            IQueryable<TEntity> query = _dbSet;
-            query = query.Where(filter);
-            return query.FirstOrDefault();
+            return _dbSet.Find(key);
         }
 
       

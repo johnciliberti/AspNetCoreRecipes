@@ -79,12 +79,6 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
 
         DbSet<Task> Tasks { get; set; } // Task
 
-        DbSet<WebpagesMembership> WebpagesMemberships { get; set; } // webpages_Membership
-
-        DbSet<WebpagesOAuthMembership> WebpagesOAuthMemberships { get; set; } // webpages_OAuthMembership
-
-        DbSet<WebpagesRoles> WebpagesRoles { get; set; } // webpages_Roles
-
         int SaveChanges();
     }
 }
