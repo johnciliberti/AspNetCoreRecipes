@@ -1,0 +1,7 @@
+﻿{
+  "LocalDomain": "gavelshreds.com",
+  "EmailServer": "email-smtp.us-east-1.amazonaws.com",
+  "EmailServerPort": 25,
+  "FromMailBoxName": "Gavel Shreds",
+  "FromMailBoxAddress": "noreply@gavelshreds.com"
+}
