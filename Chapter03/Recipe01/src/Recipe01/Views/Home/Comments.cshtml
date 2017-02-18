@@ -1,6 +1,49 @@
 ﻿<h1>Comments</h1>
+You can have three types of comments in your Razor Views, Razor comments, HTML Comments, and C# Comments
+<h2>Razor Comments</h2>
 @* This is my comment. *@
 <pre>
 @@* This is my comment. *@@
 
+</pre>
+
+<h2>HTML Comments</h2>
+<!-- this is an HTML comment. It will be sent to the client browser but is hidden on the page.-->
+<script>
+    // this is a JavaScript comment
+</script>
+
+<style>
+    /* This is a CSS Comment*/
+</style>
+<pre>
+    &lt;!-- this is an HTML comment. It will be sent to the client browser but is hidden on the page.--&gt;
+
+    &lt;script&gt;
+        // this is a JavaScript comment
+    &lt;/script&gt;
+
+    &lt;style&gt;
+        /* This is a CSS Comment*/
+    &lt;/style&gt;
+
+</pre>
+
+
+<h2>C# Comments</h2>
+@{ 
+    // this is a comment inside of a code block
+
+    /*
+     * This is a multi-line comment inside a code block
+     */
+}
+<pre>
+@@{ 
+    // this is a comment inside of a code block
+
+    /*
+     * This is a multi-line comment inside a code block
+     */
+}
 </pre>
