@@ -2,35 +2,22 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 /// <summary>
-/// these are the extention methods described in Recipe 3-7.
+/// these are the extension methods described in Recipe 3-7.
 /// </summary>
 namespace Recipe02to10.Infrastructure
 {
     /// <summary>
-    /// Summary description for MyHelperLinkExtentions
+    /// Summary description for MyHelperLinkExtensions
     /// </summary>
-    public static class MyHelperLinkExtentions
+    public static class MyHelperLinkExtensions
     {
         public static IHtmlContent SslActionLink(
             this IHtmlHelper helper,
             string linkText,
             string actionName)
         {
-            if (helper == null )
-                throw new ArgumentNullException("helper");
 
-            if(string.IsNullOrEmpty(linkText))
-                throw new ArgumentNullException("linkText");
-
-            return helper.ActionLink(
-                linkText,
-                actionName,
-                controllerName: null,
-                protocol: "https",
-                hostname: null,
-                fragment: null,
-                routeValues: null,
-                htmlAttributes: null);
+            return helper.SslActionLink(linkText, actionName, null);
         }
 
         public static IHtmlContent SslActionLink(

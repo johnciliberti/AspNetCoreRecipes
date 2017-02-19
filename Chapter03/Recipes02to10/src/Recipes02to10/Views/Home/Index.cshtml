@@ -84,7 +84,7 @@
 <div class="row">
     <div class="col-md-12">
         <h3>3-7. Create an Action Link with SSL using custom helper</h3>
-        <p>See the class defined in  <em>Infrastruture/MyHelperLinkExtentions.cs</em> for the rest of the solution</p>
+        <p>See the class defined in  <em>Infrastructure/MyHelperLinkExtentions.cs</em> for the rest of the solution</p>
 
 
         <pre>
@@ -102,6 +102,24 @@
             @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "Email", null, null)
         </pre>
         @Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "Email", null, null)
+        <p>
+            /Home/Profile#Email
+        </p>
+
+        <pre>
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "https", "", "Email", null, null)
+        </pre>
+        @Html.ActionLink("Link with a fragment", "Profile", "Home", "https", "", "Email", null, null)
+        <p>
+            https://localhost:50181/Home/Profile#Email
+        </p>
+        <pre>
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "myhostName", "Email", null, null)
+        </pre>
+        @Html.ActionLink("Link with a fragment", "Profile", "Home", "", "myhostName", "Email", null, null)
+        <p>
+            http://myhostname/Home/Profile#Email
+        </p>
     </div>
 
 </div>
