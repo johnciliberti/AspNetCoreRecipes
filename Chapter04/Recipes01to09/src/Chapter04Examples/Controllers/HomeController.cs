@@ -84,7 +84,7 @@ namespace Chapter04.Controllers
             model.Brands = _items;
             if (model.SelectedBrandId != 0)
             {
-                model.SelectedBrand = (from b in _items
+                model.SelectedBrand = (from b in model.Brands
                                        where b.Value == model.SelectedBrandId.ToString()
                                        select new GuitarBrand
                                        {
@@ -119,8 +119,7 @@ namespace Chapter04.Controllers
         #region Recipe 07
         public IActionResult Recipe07()
         {
-            var model = new FormWithCacheViewModel();
-            model.MyListIsCached = "Nothing";
+            var model = new FormWithCacheViewModel { MyListIsCached = "Nothing" };
             return View(model);
         }
         [HttpPost]

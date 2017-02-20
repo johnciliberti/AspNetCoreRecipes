@@ -25,11 +25,20 @@ namespace Recipe09.TagHelpers
 
         private string getIconName()
         {
-            if (!string.IsNullOrEmpty(IconName) && IconName.ToLowerInvariant() == "edit")
+            if(string.IsNullOrEmpty(IconName))
             {
-                return EditIcon;
+                return string.Empty;
             }
-            return DeleteIcon;
+            switch (IconName.ToLowerInvariant())
+            {
+                case EditIcon: 
+                    return EditIcon;
+                case DeleteIcon:
+                    return DeleteIcon;
+                default:
+                    return string.Empty;
+            }
+           
         }
 
         public override async Task ProcessAsync(TagHelperContext context,
