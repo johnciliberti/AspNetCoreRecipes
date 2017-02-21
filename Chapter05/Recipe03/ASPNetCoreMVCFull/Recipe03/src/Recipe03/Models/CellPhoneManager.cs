@@ -2,7 +2,7 @@
 
 namespace Recipe03.Models
 {
-    public class CellPhoneManager
+    public static class CellPhoneManager
     {
         public static List<CellPhone> GetPhones()
         {
