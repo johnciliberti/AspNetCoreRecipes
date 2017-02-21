@@ -2,6 +2,9 @@
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
+    /// <summary>
+    /// Provides Unit of work pattern for data access and exposes set of repository classes
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
         private MoBContext _context = new MoBContext();
@@ -11,6 +14,19 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         private Repository<GenreLookUp> _GenreLookUpRepository;
         private Repository<ArtistSkill> _ArtistSkillRepository;
 
+        /// <summary>
+        /// Allows connection string to be passed
+        /// </summary>
+        /// <param name="connectionString"></param>
+        public UnitOfWork(string connectionString)
+        {
+            _context = new MoBContext(connectionString);
+        }
+
+
+        /// <summary>
+        /// Allows queries and data management for data regarding Artist Skills
+        /// </summary>
         public Repository<ArtistSkill> ArtistSkillRepository
         {
             get
@@ -22,7 +38,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
                 return _ArtistSkillRepository;
             }
         }
-
+        /// <summary>
+        /// Allows queries and data management for data regarding Genres
+        /// </summary>
         public Repository<GenreLookUp> GenreLookUpRepository
         {
             get
@@ -34,7 +52,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
                 return _GenreLookUpRepository;
             }
         }
-
+        /// <summary>
+        /// Allows queries and data management for data regarding Artists
+        /// </summary>
         public ArtistRepository ArtistRepository
         {
             get
@@ -47,6 +67,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
             }
         }
 
+        /// <summary>
+        /// Allows queries and data management for data regarding Collaboration Spaces
+        /// </summary>
         public CollaborationSpaceRepository CollaborationSpaceRepository
         {
             get
@@ -59,6 +82,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
             }
         }
 
+        /// <summary>
+        /// Allows queries and data management for data regarding Bands
+        /// </summary>
         public Repository<Band> BandRepository
         {
             get
@@ -71,7 +97,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
             }
         }
 
-
+        /// <summary>
+        /// Saves changes made to any of the data to the data store
+        /// </summary>
         public void Save()
         {
             _context.SaveChanges();
@@ -79,6 +107,10 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
 
         private bool disposed = false;
 
+        /// <summary>
+        /// Allows the object to be disposed by the garbage collector
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
@@ -91,6 +123,9 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
             this.disposed = true;
         }
 
+        /// <summary>
+        /// Allows the object to be disposed by the garbage collector
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);

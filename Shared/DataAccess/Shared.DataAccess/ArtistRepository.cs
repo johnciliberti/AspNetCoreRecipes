@@ -4,23 +4,30 @@ using System.Linq;
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
     /// <summary>
-    /// Repository that simplifies accessing and modifing artist information
+    /// Repository that simplifies accessing and modifying artist information
     /// </summary>
     public class ArtistRepository : Repository<Artist>
     {
+        /// <summary>
+        /// Constructor allows Db Context to be injected
+        /// </summary>
+        /// <param name="context">Mob DB Context</param>
         public ArtistRepository(MoBContext context) : base(context)
         {
 
         }
 
         /// <summary>
-        /// Get a list of the last 20 artists to register for the site.
+        /// Gets a list of artists
         /// </summary>
-        /// <returns>List of Artists</returns>
-        public List<Artist> GetNewArtists()
+        /// <param name="page">Allows you to move between pages</param>
+        /// <returns>List of artists</returns>
+        public List<Artist> GetNewArtists(int page=1)
         {
+            var pageSize = 20;
+            var skip = (page - 1) * pageSize;
             var query = (from e in _context.Artists
-                        select e).Take(20);
+                         select e).Skip(skip).Take(20).OrderByDescending(a => a.CreateDate);
             return query.ToList();
 
         }

@@ -1,0 +1,7 @@
+﻿@inject Recipe05.Services.IHitCounterService HitCounter
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welcome</h1>
+You are the @HitCounter.UpdateCount() person to view this page.

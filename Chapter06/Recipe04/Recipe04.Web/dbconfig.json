@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=.;Database=Chapter06Recipe04;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

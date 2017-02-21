@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Chapter 05 - Recipe 04</h1>
+This is an example of a Tag Cloud created using a ViewComponent
+<h2>Tag Cloud Test</h2>
+<div class="row">
+    <div class="col-lg-5">
+        @await Component.InvokeAsync("TagCloud");
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@model Recipe04.Models.TagCloud
+<div class="tagcloud">
+    @foreach (var item in Model.Items)
+    {
+        <a href="@item.Url" class="@Model.GetLinkItemClassName(item)">
+            @item.DisplayText
+        </a>
+    }
+</div>

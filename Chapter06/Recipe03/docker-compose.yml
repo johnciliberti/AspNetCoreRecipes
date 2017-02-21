@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  recipe03:
+    image: recipe03
+    build:
+      context: ./Recipe03
+      dockerfile: Dockerfile

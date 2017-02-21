@@ -19,9 +19,9 @@
         @Html.ActionLink("Link to self", null)
 
         <pre>
-            @@Html.ActionLink("Link to other action in same controller","about")
+            @@Html.ActionLink("Link to other action in same controller","About")
         </pre>
-        @Html.ActionLink("Link to other action in same controller", "about")
+        @Html.ActionLink("Link to other action in same controller", "About")
     </div>
 
 </div>
@@ -31,9 +31,9 @@
         <h3>3-3. Create an Action Link to another controller</h3>
 
         <pre>
-            @@Html.ActionLink("Action Link to another controller", "somewhere", "Away")
+            @@Html.ActionLink("Action Link to another controller", "Somewhere", "Away")
         </pre>
-        @Html.ActionLink("Action Link to another controller", "somewhere", "Away")
+        @Html.ActionLink("Action Link to another controller", "Somewhere", "Away")
     </div>
 
 </div>
@@ -84,7 +84,7 @@
 <div class="row">
     <div class="col-md-12">
         <h3>3-7. Create an Action Link with SSL using custom helper</h3>
-        <p>See the class defined in  <em>Infrastruture/MyHelperLinkExtentions.cs</em> for the rest of the solution</p>
+        <p>See the class defined in  <em>Infrastructure/MyHelperLinkExtentions.cs</em> for the rest of the solution</p>
 
 
         <pre>
@@ -99,9 +99,27 @@
     <div class="col-md-12">
         <h3>3-8. Create an Action Link with a fragment</h3>
         <pre>
-            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "email", null, null)
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "Email", null, null)
         </pre>
         @Html.ActionLink("Link with a fragment", "Profile", "Home", "", "", "Email", null, null)
+        <p>
+            /Home/Profile#Email
+        </p>
+
+        <pre>
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "https", "", "Email", null, null)
+        </pre>
+        @Html.ActionLink("Link with a fragment", "Profile", "Home", "https", "", "Email", null, null)
+        <p>
+            https://localhost:50181/Home/Profile#Email
+        </p>
+        <pre>
+            @@Html.ActionLink("Link with a fragment", "Profile", "Home", "", "myhostName", "Email", null, null)
+        </pre>
+        @Html.ActionLink("Link with a fragment", "Profile", "Home", "", "myhostName", "Email", null, null)
+        <p>
+            http://myhostname/Home/Profile#Email
+        </p>
     </div>
 
 </div>

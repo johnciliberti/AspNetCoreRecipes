@@ -27,7 +27,7 @@ namespace Chapter04.Controllers
             return View();
         }
 
-        #region Recipe 3
+        #region Recipe 03
         public IActionResult Recipe03()
         {
             var model = new Contact { AllowContactAboutOffers = true };
@@ -47,7 +47,7 @@ namespace Chapter04.Controllers
         }
         #endregion
 
-        #region Recipe 4
+        #region Recipe 04
         public IActionResult Recipe04()
         {
             Tristate model = new Tristate { NullableBoolValue = null };
@@ -62,7 +62,7 @@ namespace Chapter04.Controllers
         }
         #endregion
 
-        #region Recipe 5
+        #region Recipe 05
         private List<SelectListItem> _items = new List<SelectListItem>
         {
            new SelectListItem { Value="", Text="Please Select a Brand"},
@@ -84,7 +84,7 @@ namespace Chapter04.Controllers
             model.Brands = _items;
             if (model.SelectedBrandId != 0)
             {
-                model.SelectedBrand = (from b in _items
+                model.SelectedBrand = (from b in model.Brands
                                        where b.Value == model.SelectedBrandId.ToString()
                                        select new GuitarBrand
                                        {
@@ -119,8 +119,7 @@ namespace Chapter04.Controllers
         #region Recipe 07
         public IActionResult Recipe07()
         {
-            var model = new FormWithCacheViewModel();
-            model.MyListIsCached = "Nothing";
+            var model = new FormWithCacheViewModel { MyListIsCached = "Nothing" };
             return View(model);
         }
         [HttpPost]

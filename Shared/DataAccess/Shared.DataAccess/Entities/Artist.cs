@@ -107,8 +107,6 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
 
         public virtual ICollection<Task> Tasks { get; set; } // Task.FK_Task_Artist
 
-        public virtual ICollection<WebpagesRoles> WebpagesRoles { get; set; } // Many to many mapping
-
         public Artist()
         {
             CreateDate = DateTime.Now;
@@ -138,7 +136,6 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
             MessageRecipients = new List<MessageRecipient>();
             PlayLists = new List<PlayList>();
             Tasks = new List<Task>();
-            WebpagesRoles = new List<WebpagesRoles>();
             Id = OldUserId.ToString();
             InitializePartial();
         }

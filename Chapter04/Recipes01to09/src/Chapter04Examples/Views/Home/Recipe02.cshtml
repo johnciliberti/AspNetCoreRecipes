@@ -1,7 +1,12 @@
 ﻿<h2>Recipe 02 - Creating Links with Tag Helpers</h2>
 
 <h3>Listing 4.5. Creating a Link to an Action In the Same Controller</h3>
-<a asp-action="Index">Link to other action in same controller</a>
+<a asp-action="Index">Link to default route same controller</a>
+@*<a href="/">Link to default route same controller</a>*@
+
+
+<br />
+<a asp-action="Recipe03">Link to other action in same controller</a>
 
 <h3>Listing 4.6. Creating a Link to an Action in Another Controller</h3>
 <a asp-action="Somewhere" asp-controller="Away">Action Link to another controller</a>
@@ -16,10 +21,10 @@
 <h3>Listing 4-9. Creating a Link to an Area with the Anchor Tag Helper</h3>
 <a asp-action="InHappyLand"
    asp-controller="ControllerInArea"
-   asp-route-area="FarFarAway">Action Link to another area</a>
+   asp-area="FarFarAway">Action Link to another area</a>
 
 <h3>Listing 4-10. Creating an Action Link that Uses HTTPS </h3>
-<a asp-action="Home" asp-controller="Home" asp-protocol="https">This link uses SSL</a>
+<a asp-action="Home" asp-controller="Home" asp-protocol="https" asp-host="foo">This link uses SSL</a>
 
 <h3>Listing 4-11. An Action Link with a Fragement</h3>
 <a asp-action="Profile" asp-controller="Home" asp-fragment="Email">Link with a fragment</a>

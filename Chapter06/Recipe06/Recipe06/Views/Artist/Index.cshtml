@@ -1,0 +1,12 @@
+@model List<AspNetCoreMvcRecipes.Shared.DataAccess.Artist>
+@{
+    ViewData["Title"] = "Artists";
+}
+
+<h1>New Artists</h1>
+
+@foreach(var item in @Model)
+{
+    @item.UserName
+    <br />
+}
