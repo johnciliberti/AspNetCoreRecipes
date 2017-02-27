@@ -12,6 +12,11 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
     /// </summary>
     public static class DebugDataSubstitute
     {
+        /// <summary>
+        /// Gets a random image from groups of 20. Useful for inserting avatar pictures in test environment 
+        /// where you do not have full image repository
+        /// </summary>
+        /// <returns></returns>
         public static string GetRandomImagePath(){
             string pattern = "/Media/Avatars/Sample{0}.jpg";
             return string.Format(pattern, RndBetween1And20());

@@ -5,7 +5,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <PackageName>AspNetCoreMvcRecipes.Shared.DataAccess</PackageName>
-    <PackageVersion>1.0.3-Alpha</PackageVersion>
+    <PackageVersion>1.0.5-Alpha</PackageVersion>
     <Author>John Ciliberti</Author>
     <Description>Data access library for use in example for Book ASP.NET Core MVC Recipes published by Apress</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

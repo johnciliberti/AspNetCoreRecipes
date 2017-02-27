@@ -1,21 +1,23 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
-
-//using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
-    // MessageSpam
+    /// <summary>
+    /// Tracks massages that have flagged as SPAM by end users
+    /// </summary>
     public partial class MessageSpam
     {
-        public int MessageSpamId { get; set; } // MessageSpamID (Primary key)
+        /// <summary>
+        /// Unique id for record
+        /// </summary>
+        public int MessageSpamId { get; set; } // (Primary key)
 
-        public int MessageId { get; set; } // MessageID
+        /// <summary>
+        /// The ID of message that was flagged
+        /// </summary>
+        public int MessageId { get; set; }
 
-        public int MessageBodyHash { get; set; } // MessageBodyHash
+        /// <summary>
+        /// Hash of message body. Use hash to make comparisons faster
+        /// </summary>
+        public int MessageBodyHash { get; set; }
     }
 }

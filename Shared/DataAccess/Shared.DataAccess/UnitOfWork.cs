@@ -27,7 +27,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Artist Skills
         /// </summary>
-        public Repository<ArtistSkill> ArtistSkillRepository
+        public IRepository<ArtistSkill> ArtistSkillRepository
         {
             get
             {
@@ -41,7 +41,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Genres
         /// </summary>
-        public Repository<GenreLookUp> GenreLookUpRepository
+        public IRepository<GenreLookUp> GenreLookUpRepository
         {
             get
             {
@@ -55,7 +55,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Artists
         /// </summary>
-        public ArtistRepository ArtistRepository
+        public IArtistRepository ArtistRepository
         {
             get
             {
@@ -70,7 +70,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Collaboration Spaces
         /// </summary>
-        public CollaborationSpaceRepository CollaborationSpaceRepository
+        public ICollaborationSpaceRepository CollaborationSpaceRepository
         {
             get
             {
@@ -85,7 +85,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Bands
         /// </summary>
-        public Repository<Band> BandRepository
+        public IRepository<Band> BandRepository
         {
             get
             {

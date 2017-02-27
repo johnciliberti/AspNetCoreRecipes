@@ -6,7 +6,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     /// <summary>
     /// Repository that simplifies accessing and modifying artist information
     /// </summary>
-    public class ArtistRepository : Repository<Artist>
+    public class ArtistRepository : Repository<Artist>, IArtistRepository
     {
         /// <summary>
         /// Constructor allows Db Context to be injected
@@ -17,12 +17,13 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
 
         }
 
+
         /// <summary>
         /// Gets a list of artists
         /// </summary>
         /// <param name="page">Allows you to move between pages</param>
         /// <returns>List of artists</returns>
-        public List<Artist> GetNewArtists(int page=1)
+        public virtual List<Artist> GetNewArtists(int page=1)
         {
             var pageSize = 20;
             var skip = (page - 1) * pageSize;

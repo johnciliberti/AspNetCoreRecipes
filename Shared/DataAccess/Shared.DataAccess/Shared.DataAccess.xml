@@ -22,6 +22,102 @@
             <param name="page">Allows you to move between pages</param>
             <returns>List of artists</returns>
         </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceRepository">
+            <summary>
+            Repository class used to access collaboration spaces
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceRepository.#ctor(AspNetCoreMvcRecipes.Shared.DataAccess.MoBContext)">
+            <summary>
+            Constructor calls base
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceRepository.GetCollaborationSpacesForArtist(System.Int32)">
+            <summary>
+            Gets all collaboration spaces for artists
+            </summary>
+            <param name="artistId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceRepository.GetActiveCollaborationSpaces(AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams,System.Int32@)">
+            <summary>
+            Gets all active collaboration spaces
+            </summary>
+            <param name="filter"></param>
+            <param name="resultsFound"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.BannedEmailAddress">
+            <summary>
+            Tracks banned email addresses for people who have violated terms of service
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.BannedEmailAddress.EmailAddress">
+            <summary>
+            The email address that is banned (Primary key)
+            </summary>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert">
+            <summary>
+            Tracks alert registrations for collaboration spaces
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.CollaborationSpaceAlertId">
+            <summary>
+            Primary key
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.CollaborationSpaceId">
+            <summary>
+            ID of collaboration space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.ArtistId">
+            <summary>
+            Artist ID
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.CreateDate">
+            <summary>
+            The date and time alert was created
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.Artist">
+            <summary>
+            Link to artists FK_CollaborationSpaceAlerts_Artist
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.CollaborationSpace">
+            <summary>
+            Link for collaboration spaces FK_CollaborationSpaceAlerts_CollaborationSpace
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.#ctor">
+            <summary>
+            Constructor establishes default values
+            </summary>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.MessageSpam">
+            <summary>
+            Tracks massages that have flagged as SPAM by end users
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.MessageSpam.MessageSpamId">
+            <summary>
+            Unique id for record
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.MessageSpam.MessageId">
+            <summary>
+            The ID of message that was flagged
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.MessageSpam.MessageBodyHash">
+            <summary>
+            Hash of message body. Use hash to make comparisons faster
+            </summary>
+        </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.MoBContext">
             <summary>
             Database Context
@@ -231,6 +327,116 @@
             </summary>
             <param name="options"></param>
         </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams">
+            <summary>
+            Search parameters for collaboration spaces
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.CurrentPageNumber">
+            <summary>
+            current page number in search
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.ItemsPerPage">
+            <summary>
+            Number of items per page
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.SortExpression">
+            <summary>
+            Sort expression used in the search
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.GenreFilter">
+            <summary>
+            Allows you to filer results by Genre
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.CollaborationModelFilter">
+            <summary>
+            Allows you to filter by collaboration model
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams.StatusFilter">
+            <summary>
+            Allows you to filter by status
+            </summary>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult">
+            <summary>
+            View Model for search results pages
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.CollaborationSpaceId">
+            <summary>
+            Collaboration space ID
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.CreateDate">
+            <summary>
+            Date collaboration space was created
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.Description">
+            <summary>
+            Description of the collaboration space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.LastPostDate">
+            <summary>
+            The date of the last post
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.ModifiedDate">
+            <summary>
+            Last date and time collaboration space was modified
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.NumberComments">
+            <summary>
+            Number of comments
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.NumberViews">
+            <summary>
+            Number of times collaboration space has been viewed
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.RestrictContributorsToBand">
+            <summary>
+            If true only band members can contribute
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.Status">
+            <summary>
+            The status of the Collaboration Space 
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.Title">
+            <summary>
+            The title of the collaboration space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.GenreLookUpId">
+            <summary>
+            Primary Genre ID for space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.UserName">
+            <summary>
+            User name of the artist who created the space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.WebSite">
+            <summary>
+            The website of the artist who created the space
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchResult.AvatarURL">
+            <summary>
+            URL of the Artist Avatar
+            </summary>
+        </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.IUnitOfWork">
             <summary>
             Exposes several repositories and a save method
@@ -371,6 +577,50 @@
             <summary>
             Helpers that can be used to aid in local testing where entire media base is not available on the local machine
             </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Util.DebugDataSubstitute.GetRandomImagePath">
+            <summary>
+            Gets a random image from groups of 20. Useful for inserting avatar pictures in test environment 
+            where you do not have full image repository
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.Util.LinqUtilities">
+            <summary>
+            Utilities that simplify writing LINQ expressions
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Util.LinqUtilities.BuildOrExpression``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Allows you to build an OR expression 
+            </summary>
+            <typeparam name="TElement"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="valueSelector"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Util.LinqUtilities.OrderByText``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            Adds ability to order by text value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Util.LinqUtilities.ApplyOrder``1(System.Linq.IQueryable{``0},System.String,System.String)">
+            <summary>
+            this method creates the expression and the uses 
+            reflection to construct a method call
+            breaking out into an second method allows us to create variations
+            that can use other methods such as OrderByDescending
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">Source queryable of T</param>
+            <param name="property"></param>
+            <param name="methodName"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -6,15 +6,26 @@ using System.Linq;
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
-    public class CollaborationSpaceRepository : Repository<CollaborationSpace>
+    /// <summary>
+    /// Repository class used to access collaboration spaces
+    /// </summary>
+    public class CollaborationSpaceRepository : Repository<CollaborationSpace>, ICollaborationSpaceRepository
     {
+        /// <summary>
+        /// Constructor calls base
+        /// </summary>
+        /// <param name="context"></param>
         public CollaborationSpaceRepository(MoBContext context) : base(context)
         {
 
         }
 
-
-        public List<CollaborationSpace> GetCollaborationSpacesForArtist(int artistId)
+        /// <summary>
+        /// Gets all collaboration spaces for artists
+        /// </summary>
+        /// <param name="artistId"></param>
+        /// <returns></returns>
+        public virtual List<CollaborationSpace> GetCollaborationSpacesForArtist(int artistId)
         {
             var query = from e in _context.CollaborationSpaces
                         join a in _context.ArtistCollaborationSpaces
@@ -25,7 +36,13 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
 
         }
 
-        public List<CollaborationSpaceSearchResult> GetActiveCollaborationSpaces(CollaborationSpaceSearchParams filter, out int resultsFound)
+        /// <summary>
+        /// Gets all active collaboration spaces
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="resultsFound"></param>
+        /// <returns></returns>
+        public virtual List<CollaborationSpaceSearchResult> GetActiveCollaborationSpaces(CollaborationSpaceSearchParams filter, out int resultsFound)
         {
             if (filter == null)
                 throw new ArgumentNullException("filter");

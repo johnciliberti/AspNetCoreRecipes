@@ -6,8 +6,19 @@ using System.Reflection;
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
 {
+    /// <summary>
+    /// Utilities that simplify writing LINQ expressions
+    /// </summary>
     public static class LinqUtilities
     {
+        /// <summary>
+        /// Allows you to build an OR expression 
+        /// </summary>
+        /// <typeparam name="TElement"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="valueSelector"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
         public static Expression<Func<TElement, bool>> BuildOrExpression<TElement, TValue>(
         Expression<Func<TElement, TValue>> valueSelector,
         IEnumerable<TValue> values
@@ -38,6 +49,13 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
             return Expression.Lambda<Func<TElement, bool>>(body, p);
         }
 
+        /// <summary>
+        /// Adds ability to order by text value
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="property"></param>
+        /// <returns></returns>
         public static IOrderedQueryable<T> OrderByText<T>(
             this IQueryable<T> source,
             string property)
@@ -50,10 +68,17 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess.Util
 
 
 
-        //this method creates the expression and the uses 
-        // reflection to construct a method call
-        // breaking out into an second method allows us to create variations
-        // that can use other methods such as OrderByDescending
+        /// <summary>
+        /// this method creates the expression and the uses 
+        /// reflection to construct a method call
+        /// breaking out into an second method allows us to create variations
+        /// that can use other methods such as OrderByDescending
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">Source queryable of T</param>
+        /// <param name="property"></param>
+        /// <param name="methodName"></param>
+        /// <returns></returns>
         public static IOrderedQueryable<T> ApplyOrder<T>(
                                 IQueryable<T> source,
                                  string property,

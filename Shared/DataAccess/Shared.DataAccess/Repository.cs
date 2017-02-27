@@ -11,7 +11,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     /// create, read, update, and delete (CRUD) operations to be performed for any of the entities in our model. 
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class Repository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         // variables hold the database context and entity set
         // for the entity type that the instance of the repo
