@@ -23,7 +23,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// </summary>
         /// <param name="page">Allows you to move between pages</param>
         /// <returns>List of artists</returns>
-        public virtual List<Artist> GetNewArtists(int page=1)
+        public virtual IList<Artist> GetNewArtists(int page=1)
         {
             var pageSize = 20;
             var skip = (page - 1) * pageSize;

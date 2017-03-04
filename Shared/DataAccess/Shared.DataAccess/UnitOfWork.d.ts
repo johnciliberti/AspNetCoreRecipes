@@ -2,19 +2,14 @@ declare module server {
 	/** Provides Unit of work pattern for data access and exposes set of repository classes */
 	interface unitOfWork {
 		/** Allows queries and data management for data regarding Artist Skills */
-		artistSkillRepository: {
-		};
+		artistSkillRepository: any;
 		/** Allows queries and data management for data regarding Genres */
-		genreLookUpRepository: {
-		};
+		genreLookUpRepository: any;
 		/** Allows queries and data management for data regarding Artists */
-		artistRepository: {
-		};
+		artistRepository: any;
 		/** Allows queries and data management for data regarding Collaboration Spaces */
-		collaborationSpaceRepository: {
-		};
+		collaborationSpaceRepository: any;
 		/** Allows queries and data management for data regarding Bands */
-		bandRepository: {
-		};
+		bandRepository: any;
 	}
 }

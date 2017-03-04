@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspNetCoreMvcRecipes.Shared.DataAccess;
-
+using Chapter07.Web.ViewModels;
+using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace Chapter07.Web.Controllers
 {
@@ -17,10 +19,31 @@ namespace Chapter07.Web.Controllers
         {
             _DataAccessLayer = dataAccessLayer;
         }
-        // GET: /<controller>/
+
         public IActionResult List()
         {
-            return View("List");
+            var model = new ArtistListViewModel();
+            try
+            {
+                model.Artists = _DataAccessLayer?.ArtistRepository?.GetNewArtists(1);
+                var nInt = model?.Artists?.Count;
+                model.RecordsFound = nInt ?? 0;
+                if(model.RecordsFound>0)
+                {
+                    model.Message = string.Format("{0} Records found", model.RecordsFound);
+                }
+                else
+                {
+                    model.Message = Strings.ArtistAdminStrings.NoDataFound;
+                }
+                
+            }
+            catch(DbException dbE)
+            {
+                model.Message = dbE.Message;
+                return View("Error", model);
+            }
+            return View("List", model);
         }
 
         public IActionResult Review()

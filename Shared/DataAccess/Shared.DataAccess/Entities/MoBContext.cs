@@ -5,7 +5,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     /// <summary>
     /// Database Context
     /// </summary>
-    public partial class MoBContext : DbContext, IMoBContext
+    public partial class MoBContext : DbContext
     {
         /// <summary>
         /// Constructor accepts DbContextOptions which is passed to base constructor

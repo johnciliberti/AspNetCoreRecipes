@@ -1,51 +1,93 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
-
 using System;
 using System.Collections.Generic;
 
-//using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
-    // Alert
+    /// <summary>
+    /// Manages alerts for application
+    /// </summary>
     public partial class Alert
     {
+        /// <summary>
+        /// Unique ID for Alert
+        /// </summary>
         public int AlertId { get; set; } // AlertId (Primary key)
 
+        /// <summary>
+        /// Headline used in  email subject and page header
+        /// </summary>
         public string Headline { get; set; } // Headline
 
+        /// <summary>
+        /// Short summary of alert
+        /// </summary>
         public string Summary { get; set; } // Summary
 
-        public int ArtistId { get; set; } // ArtistId
 
+        /// <summary>
+        /// Artist ID
+        /// </summary>
+        public int ArtistId { get; set; }
+
+        /// <summary>
+        /// person or bot that performed the action that generated the alert
+        /// </summary>
         public string ActorDisplayName { get; set; } // ActorDisplayName
 
-        public string ActorUrl { get; set; } // ActorUrl
+        /// <summary>
+        /// person or bot that performed the action that generated the alert, web page
+        /// </summary>
+        public string ActorUrl { get; set; }
 
-        public string ActorAvatarUrl { get; set; } // ActorAvatarUrl
+        /// <summary>
+        /// The URL to the avatar for the person or bot that performed the action that generated the alert
+        /// </summary>
+        public string ActorAvatarUrl { get; set; }
 
+        /// <summary>
+        /// URL for alert
+        /// </summary>
         public string AlertUrl { get; set; } // AlertUrl
 
+        /// <summary>
+        /// Date the alert was added
+        /// </summary>
         public DateTime AlertAddedDate { get; set; } // AlertAddedDate
 
+        /// <summary>
+        /// Number of clicks alert has generated
+        /// </summary>
         public int ClickCount { get; set; } // ClickCount
 
+        /// <summary>
+        /// Date the alert was targeting
+        /// </summary>
         public DateTime AlertDate { get; set; } // AlertDate
 
+        /// <summary>
+        /// Alert category
+        /// </summary>
         public int Category { get; set; } // Category
 
+        /// <summary>
+        /// Item alert was about
+        /// </summary>
         public string ItemIdentifier { get; set; } // ItemIdentifier
 
-        public int ItemDetailIdentifier { get; set; } // ItemDetailIdentifier
+        /// <summary>
+        /// ID of item that alert will alert to
+        /// </summary>
+        public int ItemDetailIdentifier { get; set; }
 
-        // Reverse navigation
+        /// <summary>
+        /// Link to tags
+        /// </summary>
         public virtual ICollection<AlertTag> AlertTags { get; set; } // AlertTag.FK_AlertTag_Alert
 
+        /// <summary>
+        /// Constructor sets defaults
+        /// </summary>
         public Alert()
         {
             ClickCount = 0;

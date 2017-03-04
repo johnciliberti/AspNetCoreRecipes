@@ -8,19 +8,28 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     public class UnitOfWork : IUnitOfWork
     {
         private MoBContext _context = new MoBContext();
-        private ArtistRepository _ArtistRepository;
-        private Repository<Band> _BandRepository;
-        private CollaborationSpaceRepository _CollaborationSpaceRepository;
-        private Repository<GenreLookUp> _GenreLookUpRepository;
-        private Repository<ArtistSkill> _ArtistSkillRepository;
+        private IArtistRepository _ArtistRepository;
+        private IRepository<Band> _BandRepository;
+        private ICollaborationSpaceRepository _CollaborationSpaceRepository;
+        private IRepository<GenreLookUp> _GenreLookUpRepository;
+        private IRepository<ArtistSkill> _ArtistSkillRepository;
 
-        /// <summary>
-        /// Allows connection string to be passed
-        /// </summary>
-        /// <param name="connectionString"></param>
+        ///// <summary>
+        ///// Allows Class to be created using supplied connection string
+        ///// </summary>
+        ///// <param name="connectionString"></param>
         public UnitOfWork(string connectionString)
         {
             _context = new MoBContext(connectionString);
+        }
+
+        /// <summary>
+        /// Allows class to be created using DB Context injected by application
+        /// </summary>
+        /// <param name="context"></param>
+        public UnitOfWork(MoBContext context)
+        {
+            _context = context;
         }
 
 

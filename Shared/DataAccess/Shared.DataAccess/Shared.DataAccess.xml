@@ -48,6 +48,91 @@
             <param name="resultsFound"></param>
             <returns></returns>
         </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.Alert">
+            <summary>
+            Manages alerts for application
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.AlertId">
+            <summary>
+            Unique ID for Alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.Headline">
+            <summary>
+            Headline used in  email subject and page header
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.Summary">
+            <summary>
+            Short summary of alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ArtistId">
+            <summary>
+            Artist ID
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ActorDisplayName">
+            <summary>
+            person or bot that performed the action that generated the alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ActorUrl">
+            <summary>
+            person or bot that performed the action that generated the alert, web page
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ActorAvatarUrl">
+            <summary>
+            The URL to the avatar for the person or bot that performed the action that generated the alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.AlertUrl">
+            <summary>
+            URL for alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.AlertAddedDate">
+            <summary>
+            Date the alert was added
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ClickCount">
+            <summary>
+            Number of clicks alert has generated
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.AlertDate">
+            <summary>
+            Date the alert was targeting
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.Category">
+            <summary>
+            Alert category
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ItemIdentifier">
+            <summary>
+            Item alert was about
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.ItemDetailIdentifier">
+            <summary>
+            ID of item that alert will alert to
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.AlertTags">
+            <summary>
+            Link to tags
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Alert.#ctor">
+            <summary>
+            Constructor sets defaults
+            </summary>
+        </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.BannedEmailAddress">
             <summary>
             Tracks banned email addresses for people who have violated terms of service
@@ -96,6 +181,41 @@
         <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpaceAlert.#ctor">
             <summary>
             Constructor establishes default values
+            </summary>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp">
+            <summary>
+            List of Genres
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.GenreLookUpId">
+            <summary>
+            Unique ID for Genre
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.GenreName">
+            <summary>
+            Genre Name
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.Culture">
+            <summary>
+            The culture this Genre will be used with
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.BandGenres">
+            <summary>
+            Link between Bands and Genres
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.CollaborationSpaceGenres">
+            <summary>
+            Link between Collaboration Spaces and Genres
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.GenreLookUp.#ctor">
+            <summary>
+            Constructor initialize Culture to en
             </summary>
         </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.MessageSpam">
@@ -437,6 +557,81 @@
             URL of the Artist Avatar
             </summary>
         </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.IArtistRepository">
+            <summary>
+            Repository for artists
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IArtistRepository.GetNewArtists(System.Int32)">
+            <summary>
+            Gets list of artists
+            </summary>
+            <param name="page">The page number. Default is page 1</param>
+            <returns>List of artists</returns>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.ICollaborationSpaceRepository">
+            <summary>
+            Interface for repository for collaboration spaces
+            </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.ICollaborationSpaceRepository.GetActiveCollaborationSpaces(AspNetCoreMvcRecipes.Shared.DataAccess.Facade.CollaborationSpaceSearchParams,System.Int32@)">
+            <summary>
+            Gets list of collaboration spaces
+            </summary>
+            <param name="filter"></param>
+            <param name="resultsFound"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.ICollaborationSpaceRepository.GetCollaborationSpacesForArtist(System.Int32)">
+            <summary>
+            Gets list of collaboration spaces for a specific artist
+            </summary>
+            <param name="artistId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1">
+            <summary>
+            The Generic Repository class exposes a set of methods that allow 
+            create, read, update, and delete (CRUD) operations to be performed for any of the entities in our model. 
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1.Delete(`0)">
+            <summary>
+            Deletes an entity
+            </summary>
+            <param name="entityToDelete"></param>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1.GetEntityByKey(System.Object)">
+            <summary>
+            Fetches an entity using a unique identifier 
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1.Insert(`0)">
+            <summary>
+            Adds a new entity
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1.Query(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Func{System.Linq.IQueryable{`0},System.Linq.IOrderedQueryable{`0}},System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Allows you to query an entity
+            </summary>
+            <param name="filter">Lambda expression for filtering rows</param>
+            <param name="orderBy">Lambda expression for sorting</param>
+            <param name="includedProperties">Add an argument for each property that should be eager loaded</param>
+            <param name="page">When pageSize is greater then 0 then will return a particular data page</param>
+            <param name="pageSize">Number of items per page. 0 will return all data without pages</param>
+            <returns>An IEnumerable of the type or null if no data is found</returns>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.IRepository`1.Update(`0)">
+            <summary>
+            Update entity
+            </summary>
+            <param name="entityToUpdate"></param>
+        </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.IUnitOfWork">
             <summary>
             Exposes several repositories and a save method
@@ -526,11 +721,11 @@
             Provides Unit of work pattern for data access and exposes set of repository classes
             </summary>
         </member>
-        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork.#ctor(System.String)">
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork.#ctor(AspNetCoreMvcRecipes.Shared.DataAccess.MoBContext)">
             <summary>
-            Allows connection string to be passed
+            Allows class to be created using DB Context injected by application
             </summary>
-            <param name="connectionString"></param>
+            <param name="context"></param>
         </member>
         <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork.ArtistSkillRepository">
             <summary>

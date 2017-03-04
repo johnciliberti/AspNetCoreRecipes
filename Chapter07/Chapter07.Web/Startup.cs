@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AspNetCoreMvcRecipes.Shared.DataAccess;
 
 namespace Chapter07.Web
 {
@@ -29,6 +31,15 @@ namespace Chapter07.Web
         {
             // Add framework services.
             services.AddMvc();
+
+            // Register the DB Context that is required by UnitOfWork
+            services.AddDbContext<MoBContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),
+                ServiceLifetime.Scoped);
+
+            // Register UnitOfWork as Scopes so it will have one instance per request
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +69,8 @@ namespace Chapter07.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }
