@@ -1,0 +1,40 @@
+@model IList<AspNetCoreMvcRecipes.Shared.DataAccess.CollaborationSpace>
+@{
+    ViewData["Title"] = "My Collaboration Spaces";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (Model == null || Model.Count < 1)
+{
+    <div>
+        Sorry no data found!
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Project Name
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Modified
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="#">@item.Title</a></td>
+                <td>@item.Status</td>
+                <td>@item.CreateDate</td>
+                <td>@item.ModifiedDate</td>
+            </tr>
+        }
+    </table>
+}
