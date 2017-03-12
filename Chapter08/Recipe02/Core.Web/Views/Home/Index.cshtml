@@ -1,0 +1,35 @@
+﻿@model IList<Recipe02.DataAccess.Entities.Guitar>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Chapter 08 - Recipe 02</h1>
+<p>
+    This content is from the ASP.NET Core part of the application. Below is the content from a shared component library that has been packaged as a NuGet package. The component uses Entity Framework 6
+
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            Brand
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Number of Strings
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Brand</td>
+            <td>@item.Model</td>
+            <td>@item.Year</td>
+            <td>@item.NumberOfStrings</td>
+        </tr>
+    }
+</table>
