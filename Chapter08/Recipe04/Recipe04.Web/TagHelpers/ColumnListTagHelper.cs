@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Recipe04.Web.TagHelpers
 {
-    [HtmlTargetElement(TagName)]
+
     public class ColumnListTagHelper : TagHelper
     {
         public const string NumberOfColumnsAttributeName = "asp-number-of-columns";
         private const string ForAttributeName = "asp-for";
         private const string ViewComponentAttributeName = "asp-view-component";
-        private const string TagName = "columnlist";
+
         private readonly IViewComponentHelper _viewComponentHelper;
         public ColumnListTagHelper(IViewComponentHelper viewComponentHelper)
         {
@@ -68,69 +68,70 @@ namespace Recipe04.Web.TagHelpers
                 throw new ArgumentNullException(nameof(output));
             }
 
-            if(NumberOfColumns<1 || NumberOfColumns > 12)
+            if (NumberOfColumns < 1 || NumberOfColumns > 12)
             {
                 throw new ArgumentOutOfRangeException("NumberOfColumns", "The number of columns must be at least 1 and at most 12.");
             }
             if (For == null)
             {
+                output.SuppressOutput();
                 return;
             }
-            
-            
+            var collection = For.Model as ICollection;
+            if (collection == null)
+            {
+                throw new ArgumentOutOfRangeException("For", "The Model Expression need to be a collection.");
+            }
+
+            //add the view context of the current view to the view component, enable to invoke
+            ((IViewContextAware)_viewComponentHelper).Contextualize(ViewContext);
 
             output.TagName = "div";
             output.Attributes.SetAttribute("class", "container-fluid");
 
-            var viewComponentName = context.AllAttributes[ViewComponentAttributeName].Value.ToString();
-            //var numberOfColumns = 
 
-            var collection = For.Model as ICollection;
-            if(collection != null)
+            var columnsInRow = 1;
+            var rowsDone = 0;
+            var numberOfItemsDone = 0;
+            var numberOfExtraColumnsInLastRow = 0;
+            //calculate the needed table structure
+            int numberOfRows = collection.Count / NumberOfColumns;
+
+            
+            foreach (var item in collection)
             {
-                var columnsInRow = 1;
-                var rowsDone = 0;
-                var numberOfItemsDone = 0;
-                var numberOfExtraColumnsInLastRow = 0;
-                //calculate the needed table structure
-                int numberOfRows = collection.Count / NumberOfColumns;
-
-                
-                foreach (var item in collection)
+                if (columnsInRow == 1)
                 {
-                    if (columnsInRow == 1)
-                    {
-                        output.Content.AppendHtml(@"<div class=""row"">");
-                    }
-
-                    output.Content.AppendHtml(GetColumnDivTag());
-                    //add the view context of the current view to the view component, enable to invoke
-                    ((IViewContextAware)_viewComponentHelper).Contextualize(ViewContext);
-                    var viewContent = await _viewComponentHelper.InvokeAsync(viewComponentName, item);
-                    output.Content.AppendHtml(viewContent);
-                    output.Content.AppendHtml("</div>");
-
-                    bool isLastItem = (collection.Count == numberOfItemsDone + 1);
-
-                    if ((columnsInRow == NumberOfColumns) || isLastItem)
-                    {
-                        if (isLastItem)
-                        {
-                            numberOfExtraColumnsInLastRow = NumberOfColumns - columnsInRow;
-                            output.Content.AppendHtml((RenderExtraColumns(numberOfExtraColumnsInLastRow)));
-                        }
-                        output.Content.AppendHtml("</div>");
-                        columnsInRow = 1;
-                        rowsDone++;
-                    }
-                    else
-                    {
-                        columnsInRow++;
-                    }
-
-                    numberOfItemsDone++;
-
+                    output.Content.AppendHtml(@"<div class=""row"">");
                 }
+
+                output.Content.AppendHtml(GetColumnDivTag());
+                
+                var viewContent = await _viewComponentHelper.InvokeAsync(ViewComponentName, item);
+                output.Content.AppendHtml(viewContent);
+                output.Content.AppendHtml("</div>");
+
+                bool isLastItem = (collection.Count == numberOfItemsDone + 1);
+
+                if ((columnsInRow == NumberOfColumns) || isLastItem)
+                {
+                    if (isLastItem)
+                    {
+                        numberOfExtraColumnsInLastRow = NumberOfColumns - columnsInRow;
+                        output.Content.AppendHtml((RenderExtraColumns(numberOfExtraColumnsInLastRow)));
+                    }
+                    output.Content.AppendHtml("</div>");
+                    columnsInRow = 1;
+                    rowsDone++;
+                }
+                else
+                {
+                    columnsInRow++;
+                }
+
+                numberOfItemsDone++;
+
+
             }
         }
 
