@@ -133,6 +133,31 @@
             Constructor sets defaults
             </summary>
         </member>
+        <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.AlertSubscription">
+            <summary>
+            Tracks alerts an artist is subscribed to
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.AlertSubscription.AlertSubscriptionId">
+            <summary>
+            Primary key for class
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.AlertSubscription.ArtistId">
+            <summary>
+            Artist who is subscribing to alert
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.AlertSubscription.Tags">
+            <summary>
+            One or more tags separated by commas
+            </summary>
+        </member>
+        <member name="P:AspNetCoreMvcRecipes.Shared.DataAccess.AlertSubscription.Artist">
+            <summary>
+            FK_AlertSubscription_Artist
+            </summary>
+        </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.BannedEmailAddress">
             <summary>
             Tracks banned email addresses for people who have violated terms of service
@@ -702,24 +727,30 @@
             <summary>
             Insert a new entity
             </summary>
-            <param name="entity"></param>
+            <param name="entity">Entity that you would like to add</param>
         </member>
         <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Update(`0)">
             <summary>
             Update entity
             </summary>
-            <param name="entityToUpdate"></param>
+            <param name="entityToUpdate">Entity to be updated</param>
         </member>
         <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.Repository`1.Delete(`0)">
             <summary>
             Delete the entity
             </summary>
-            <param name="entityToDelete"></param>
+            <param name="entityToDelete">Entity to be deleted</param>
         </member>
         <member name="T:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork">
             <summary>
             Provides Unit of work pattern for data access and exposes set of repository classes
             </summary>
+        </member>
+        <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork.#ctor(System.String)">
+            <summary>
+            Allows Class to be created using supplied connection string
+            </summary>
+            <param name="connectionString">The connection string used to connect to the database.</param>
         </member>
         <member name="M:AspNetCoreMvcRecipes.Shared.DataAccess.UnitOfWork.#ctor(AspNetCoreMvcRecipes.Shared.DataAccess.MoBContext)">
             <summary>

@@ -88,7 +88,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Insert a new entity
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="entity">Entity that you would like to add</param>
         public virtual void Insert(TEntity entity)
         {
             _dbSet.Add(entity);
@@ -97,7 +97,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Update entity
         /// </summary>
-        /// <param name="entityToUpdate"></param>
+        /// <param name="entityToUpdate">Entity to be updated</param>
         public virtual void Update(TEntity entityToUpdate)
         {
             _dbSet.Attach(entityToUpdate);
@@ -107,7 +107,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Delete the entity
         /// </summary>
-        /// <param name="entityToDelete"></param>
+        /// <param name="entityToDelete">Entity to be deleted</param>
         public virtual void Delete(TEntity entityToDelete)
         {
             _context.Remove(entityToDelete);

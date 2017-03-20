@@ -19,8 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\" />
-    <Folder Include="Areas\Collaboration\" />
+    <Folder Include="Areas\Collaboration\Controllers\" />
     <Folder Include="Areas\Music\" />
   </ItemGroup>
 

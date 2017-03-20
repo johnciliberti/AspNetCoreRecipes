@@ -5,19 +5,19 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     /// <summary>
     /// Provides Unit of work pattern for data access and exposes set of repository classes
     /// </summary>
-    public class UnitOfWork : IUnitOfWork
+    public sealed class UnitOfWork : IUnitOfWork
     {
-        private MoBContext _context = new MoBContext();
+        private MoBContext _context;
         private IArtistRepository _ArtistRepository;
         private IRepository<Band> _BandRepository;
         private ICollaborationSpaceRepository _CollaborationSpaceRepository;
         private IRepository<GenreLookUp> _GenreLookUpRepository;
         private IRepository<ArtistSkill> _ArtistSkillRepository;
 
-        ///// <summary>
-        ///// Allows Class to be created using supplied connection string
-        ///// </summary>
-        ///// <param name="connectionString"></param>
+        /// <summary>
+        /// Allows Class to be created using supplied connection string
+        /// </summary>
+        /// <param name="connectionString">The connection string used to connect to the database.</param>
         public UnitOfWork(string connectionString)
         {
             _context = new MoBContext(connectionString);
@@ -120,16 +120,16 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// Allows the object to be disposed by the garbage collector
         /// </summary>
         /// <param name="disposing"></param>
-        protected virtual void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
                     _context.Dispose();
                 }
             }
-            this.disposed = true;
+            disposed = true;
         }
 
         /// <summary>

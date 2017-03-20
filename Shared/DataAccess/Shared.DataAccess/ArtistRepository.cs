@@ -26,11 +26,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         public virtual IList<Artist> GetNewArtists(int page=1)
         {
             var pageSize = 20;
-            var skip = (page - 1) * pageSize;
-            var query = (from e in _context.Artists
-                         select e).Skip(skip).Take(20).OrderByDescending(a => a.CreateDate);
-            return query.ToList();
-
+            return Query(null, (qry) => qry.OrderByDescending(a => a.CreateDate), page, pageSize).ToList();
         }
     }
 }
