@@ -1,5 +1,5 @@
 ﻿$(function ($) {
-    "use strict"
+    "use strict";
     $.validator.addMethod('confirmvalue',
         function (value, element, params) {
             var expectedValue = params.expectedvalue;
@@ -7,13 +7,13 @@
             var actual;
             if (element.type === "checkbox") {
                 actual = element.checked;
-                expectedValue = (expectedValue === "True") ? true : false;
+                expectedValue = expectedValue === "True" ? true : false;
             } else {
                 actual = element.value;
             }
 
             if (expectedValue === actual) {
-                return true
+                return true;
             }
             return false;
         });
