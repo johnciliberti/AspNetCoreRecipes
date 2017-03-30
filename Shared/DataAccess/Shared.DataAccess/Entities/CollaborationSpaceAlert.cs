@@ -1,32 +1,47 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
 
 using System;
 
-//using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
 
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
-    // CollaborationSpaceAlerts
+    /// <summary>
+    /// Tracks alert registrations for collaboration spaces
+    /// </summary>
     public partial class CollaborationSpaceAlert
     {
-        public int CollaborationSpaceAlertId { get; set; } // CollaborationSpaceAlertId (Primary key)
+        /// <summary>
+        /// Primary key
+        /// </summary>
+        public int CollaborationSpaceAlertId { get; set; }
 
-        public int CollaborationSpaceId { get; set; } // CollaborationSpaceId
+        /// <summary>
+        /// ID of collaboration space
+        /// </summary>
+        public int CollaborationSpaceId { get; set; }
 
-        public int ArtistId { get; set; } // ArtistId
+        /// <summary>
+        /// Artist ID
+        /// </summary>
+        public int ArtistId { get; set; }
 
+        /// <summary>
+        /// The date and time alert was created
+        /// </summary>
         public DateTime CreateDate { get; set; } // CreateDate
 
-        // Foreign keys
-        public virtual Artist Artist { get; set; } // FK_CollaborationSpaceAlerts_Artist
+        /// <summary>
+        /// Link to artists FK_CollaborationSpaceAlerts_Artist
+        /// </summary>
+        public virtual Artist Artist { get; set; }
 
-        public virtual CollaborationSpace CollaborationSpace { get; set; } // FK_CollaborationSpaceAlerts_CollaborationSpace
+        /// <summary>
+        /// Link for collaboration spaces FK_CollaborationSpaceAlerts_CollaborationSpace
+        /// </summary>
+        public virtual CollaborationSpace CollaborationSpace { get; set; } 
 
+        /// <summary>
+        /// Constructor establishes default values
+        /// </summary>
         public CollaborationSpaceAlert()
         {
             CreateDate = System.DateTime.Now;

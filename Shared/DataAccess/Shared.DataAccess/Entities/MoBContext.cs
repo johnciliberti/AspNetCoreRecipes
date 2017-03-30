@@ -5,7 +5,7 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
     /// <summary>
     /// Database Context
     /// </summary>
-    public partial class MoBContext : DbContext, IMoBContext
+    public sealed class MoBContext : DbContext
     {
         /// <summary>
         /// Constructor accepts DbContextOptions which is passed to base constructor
@@ -209,9 +209,6 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         public DbSet<Task> Tasks { get; set; } // Task
 
 
-
-
-        partial void InitializePartial();
 
         /// <summary>
         /// Code that runs when model is created. Used to add meta-data 

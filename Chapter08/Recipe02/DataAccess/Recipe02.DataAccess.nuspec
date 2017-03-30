@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Apress.AspNetCoreRecipes.Chapter08.Recipe02.DataAccess</id>
+    <version>0.1</version>
+    <title>Chapter08 Recipe 02 Data Access</title>
+    <authors>John Ciliberti</authors>
+    <owners>John Ciliberti</owners>
+    <projectUrl>http://www.apress.com/us/book/9781484204276</projectUrl>
+    <iconUrl>https://images.springer.com/sgw/books/medium/9781484204276.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Sample of a library that can be shared between a web forms and ASP.NET Core (.NET ) project</description>
+    <releaseNotes>This is very basic functionality. Does not actually connect to a database.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>ASP.NET Core</tags>
+  </metadata>
+</package>

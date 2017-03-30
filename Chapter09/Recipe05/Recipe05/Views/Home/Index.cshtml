@@ -1,0 +1,56 @@
+﻿@model Recipe05.ViewModels.GuitarBuilderViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Chapter 9 - Recipe 05</h1>
+Use this form to build the guitar of your dreams and our robots will build it for you.
+
+<form asp-action="index">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Guitar.Name"></label>
+        <input class="form-control" asp-for="Guitar.Name" placeholder="Name for your custom guitar">
+        <span asp-validation-for="Guitar.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Guitar.Body"></label>
+        <select class="form-control"
+        asp-for="SelectedBody"
+        asp-items="Model.BodyList">
+        </select>
+        <span asp-validation-for="Guitar.Body" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Guitar.BridgePickup"></label>
+        <select class="form-control"
+                asp-for="SelectedBridgePickup"
+                asp-items="Model.BridePickupList"></select>
+        <span asp-validation-for="Guitar.BridgePickup" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Guitar.MiddlePickup"></label>
+        <select class="form-control"
+                asp-for="SelectedMiddlePickup"
+                asp-items="Model.MiddlePickupList"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Guitar.NeckPickup"></label>
+        <select class="form-control"
+                asp-for="SelectedNeckPickup"
+                asp-items="Model.NeckPickupList"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Guitar.Strings"></label>
+        <select class="form-control"
+                asp-for="SelectedStrings"
+                asp-items="Model.StringsList"></select>
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+@section scripts{
+    @Html.Partial("_ValidationScriptsPartial")
+}

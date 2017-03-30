@@ -1,0 +1,19 @@
+﻿@model AspNetCoreMvcRecipes.Shared.DataAccess.Artist
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>@Model.UserName</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-4 col-md-4">
+            <img src="@Model.AvatarUrlSample"
+                 class="img-circle img-responsive"
+                 alt="Click Image to view full profile" />
+
+        </div>
+        <div class="col-lg-8 col-md-8">
+            <p>Country: @Model.Country</p>
+            <p>Joined: @Model.CreateDate.ToString("MM/dd/yyyy")</p>          
+            <p>Views: @Model.ProfileViews</p>
+        </div>
+    </div>
+</div>

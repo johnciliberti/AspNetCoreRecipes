@@ -10,27 +10,27 @@ namespace AspNetCoreMvcRecipes.Shared.DataAccess
         /// <summary>
         /// Allows queries and data management for data regarding Artists
         /// </summary>
-        ArtistRepository ArtistRepository { get;  }
+        IArtistRepository ArtistRepository { get;  }
 
         /// <summary>
         /// Allows queries and data management for data regarding Collaboration Spaces
         /// </summary>
-        CollaborationSpaceRepository CollaborationSpaceRepository { get;  }
+        ICollaborationSpaceRepository CollaborationSpaceRepository { get;  }
 
         /// <summary>
         /// Allows queries and data management for data regarding Bands
         /// </summary>
-        Repository<Band> BandRepository { get; }
+        IRepository<Band> BandRepository { get; }
 
         /// <summary>
         /// Lookup lists for styles of music
         /// </summary>
-        Repository<GenreLookUp> GenreLookUpRepository { get; }
+        IRepository<GenreLookUp> GenreLookUpRepository { get; }
 
         /// <summary>
         /// Allows queries and data management for data regarding Artist Skills
         /// </summary>
-        Repository<ArtistSkill> ArtistSkillRepository { get; }
+        IRepository<ArtistSkill> ArtistSkillRepository { get; }
 
         /// <summary>
         /// Saves data when state of objects has been changed

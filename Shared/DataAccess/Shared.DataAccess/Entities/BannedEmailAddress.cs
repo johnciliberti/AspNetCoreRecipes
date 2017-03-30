@@ -1,8 +1,13 @@
 namespace AspNetCoreMvcRecipes.Shared.DataAccess
 {
-    // BannedEmailAddress
+    /// <summary>
+    /// Tracks banned email addresses for people who have violated terms of service
+    /// </summary>
     public partial class BannedEmailAddress
     {
-        public string EmailAddress { get; set; } // EmailAddress (Primary key)
+        /// <summary>
+        /// The email address that is banned (Primary key)
+        /// </summary>
+        public string EmailAddress { get; set; }
     }
 }

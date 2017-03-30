@@ -1,0 +1,20 @@
+﻿@model Chapter07.Web.ViewModels.ArtistListViewModel
+
+<h2>Artists</h2>
+@Model.Message
+<table class="table table-striped">
+    @foreach (var item in Model.Artists)
+    {
+        <tr>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.Country
+            </td>
+            <td>
+                @item.CreateDate.ToString("d")
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,84 @@
+@model Recipe01.ViewModels.TShirtViewModel
+
+@{
+    ViewData["Title"] = "Add New T-Shirt";
+}
+
+<h2>Add New T-Shirt</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="SaleStartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SaleStartDate" class="form-control" />
+                <span asp-validation-for="SaleStartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SaleEndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SaleEndDate" class="form-control" />
+                <span asp-validation-for="SaleEndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SellerEmailAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SellerEmailAddress" class="form-control" />
+                <span asp-validation-for="SellerEmailAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmEmailAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ConfirmEmailAddress" class="form-control" />
+                <span asp-validation-for="ConfirmEmailAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="AgreeToTermsAndConditions" />
+                    <label asp-for="AgreeToTermsAndConditions"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
