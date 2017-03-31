@@ -1,5 +1,4 @@
-﻿
-namespace Chapter07.Web.Strings
+﻿namespace Chapter07.Web.Strings
 {
     public static class ArtistAdminStrings
     {

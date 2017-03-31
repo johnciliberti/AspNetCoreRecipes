@@ -1,9 +1,10 @@
-using Xunit;
-using Microsoft.AspNetCore.Mvc;
-using Chapter07.Web.Strings;
 using Chapter07.Web.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using Xunit;
+using Chapter07.Web.Strings;
 
-namespace Recipe07.Test.Controllers
+namespace Chapter07.Test.Controllers
 {
     public class HomeControllerTests
     {
@@ -12,29 +13,16 @@ namespace Recipe07.Test.Controllers
         {
             // Arrange
             var controller = new HomeController();
-            var expected = "Index";
+            var expected = HomeStrings.IndexView;
 
             // Act
             var result = controller.Index() as ViewResult;
-            var actual = result?.ViewName;
+            var actual = result.ViewName;
 
             // Assert
             Assert.Equal(expected, actual);
         }
-        [Fact]
-        public void AboutAction_ReturnsAboutView()
-        {
-            // Arrange
-            var controller = new HomeController();
-            var expected = "About";
 
-            // Act
-            var result = controller.About() as ViewResult;
-            var actual = result?.ViewName;
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
         [Fact]
         public void AboutAction_ReturnsExpectedMessageInViewBag()
         {
@@ -44,7 +32,22 @@ namespace Recipe07.Test.Controllers
 
             // Act
             var result = controller.About() as ViewResult;
-            var actual = result?.ViewData[HomeStrings.ViewDataMessage];
+            var actual = result?.ViewData[HomeStrings.ViewDataMessageKey];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void AboutAction_ReturnsAboutView()
+        {
+            // Arrange
+            var controller = new HomeController();
+            var expected = HomeStrings.AboutView;
+
+            // Act
+            var result = controller.About() as ViewResult;
+            var actual = result?.ViewName;
 
             // Assert
             Assert.Equal(expected, actual);
@@ -55,7 +58,7 @@ namespace Recipe07.Test.Controllers
         {
             // Arrange
             var controller = new HomeController();
-            var expected = "Contact";
+            var expected = HomeStrings.ContactView;
 
             // Act
             var result = controller.Contact() as ViewResult;
@@ -73,7 +76,7 @@ namespace Recipe07.Test.Controllers
 
             // Act
             var result = controller.Contact() as ViewResult;
-            var actual = result?.ViewData[HomeStrings.ViewDataMessage];
+            var actual = result?.ViewData[HomeStrings.ViewDataMessageKey];
 
             // Assert
             Assert.Equal(expected, actual);
@@ -84,7 +87,7 @@ namespace Recipe07.Test.Controllers
         {
             // Arrange
             var controller = new HomeController();
-            var expected = "Error";
+            var expected = HomeStrings.ErrorView;
 
             // Act
             var result = controller.Error() as ViewResult;
@@ -94,4 +97,5 @@ namespace Recipe07.Test.Controllers
             Assert.Equal(expected, actual);
         }
     }
+
 }

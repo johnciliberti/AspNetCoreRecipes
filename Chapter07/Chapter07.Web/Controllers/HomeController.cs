@@ -7,26 +7,26 @@ namespace Chapter07.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View("Index");
+            return View(HomeStrings.IndexView);
         }
 
         public IActionResult About()
         {
-            ViewData[HomeStrings.ViewDataMessage] = HomeStrings.AboutMessage;
+            ViewData[HomeStrings.ViewDataMessageKey] = HomeStrings.AboutMessage;
 
-            return View("About");
+            return View(HomeStrings.AboutView);
         }
 
         public IActionResult Contact()
         {
-            ViewData[HomeStrings.ViewDataMessage] = HomeStrings.ContactMessage;
+            ViewData[HomeStrings.ViewDataMessageKey] = HomeStrings.ContactMessage;
 
-            return View("Contact");
+            return View(HomeStrings.ContactView);
         }
 
         public IActionResult Error()
         {
-            return View("Error");
+            return View(HomeStrings.ErrorView);
         }
     }
 }

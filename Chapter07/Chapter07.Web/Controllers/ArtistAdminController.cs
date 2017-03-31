@@ -7,6 +7,7 @@ using AspNetCoreMvcRecipes.Shared.DataAccess;
 using Chapter07.Web.ViewModels;
 using System.Data.SqlClient;
 using System.Data.Common;
+using Chapter07.Web.Strings;
 
 namespace Chapter07.Web.Controllers
 {
@@ -34,7 +35,7 @@ namespace Chapter07.Web.Controllers
                 }
                 else
                 {
-                    model.Message = Strings.ArtistAdminStrings.NoDataFound;
+                    model.Message = ArtistAdminStrings.NoDataFound;
                 }
                 
             }
