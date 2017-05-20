@@ -1,10 +1,10 @@
-﻿using Recipe02.Validation;
+﻿using Recipe02.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Recipe02.Models
 {
-    public class SoftwareLicenceAgreement
+    public class SoftwareLicenceAgreementModel
     {
         [Required]
         public string AgreementText { get; set; } = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ille incendat? 
@@ -23,7 +23,7 @@ Dat enim intervalla et relaxat.Tibi hoc incredibile, quod beatissimum.";
         [Display(Name = "Licensee Name")]
         public string LicenseeName { get; set; }
 
-        [ConfirmValue(true, ErrorMessage = "Please accept the licensing agreement.")]
+        [ConfirmValue(true, ErrorMessage = "Please accept the licensing agreement")]
         [Display(Name = "Agreement Accepted")]
         public bool AgreementAccepted { get; set; }
     }

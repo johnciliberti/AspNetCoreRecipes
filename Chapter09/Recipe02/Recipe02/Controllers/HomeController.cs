@@ -7,11 +7,11 @@ namespace Recipe02.Controllers
     {
         public IActionResult Index()
         {
-            var model = new SoftwareLicenceAgreement() { SoftwareProductName = "Some really Great Software"};
+            var model = new SoftwareLicenceAgreementModel() { SoftwareProductName = "Some really Great Software"};
             return View("Index", model);
         }
         [HttpPost]
-        public IActionResult Index(SoftwareLicenceAgreement model)
+        public IActionResult Index(SoftwareLicenceAgreementModel model)
         {
             if(ModelState.IsValid)
             {
