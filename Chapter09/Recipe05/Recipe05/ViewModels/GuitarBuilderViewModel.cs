@@ -16,7 +16,7 @@ namespace Recipe05.ViewModels
 
         public Guitar Guitar { get; set; } = new Guitar();
 
-        public IEnumerable<SelectListItem> BridePickupList { get; set; }
+        public IEnumerable<SelectListItem> BridgePickupList { get; set; }
         public string SelectedBridgePickup { get; set; }
 
         public IEnumerable<SelectListItem> MiddlePickupList { get; set; }
@@ -37,7 +37,7 @@ namespace Recipe05.ViewModels
             Inventory = new Inventory();
             BodyList = SelectListItemAdapter.ConvertToSelectListItemCollection
                         (Inventory.GuitarBodies, s => s.Name);
-            BridePickupList = SelectListItemAdapter.ConvertToSelectListItemCollection
+            BridgePickupList = SelectListItemAdapter.ConvertToSelectListItemCollection
                         (Inventory.GuitarPickups, s => s.Name);
             MiddlePickupList = SelectListItemAdapter.ConvertToSelectListItemCollection
                         (Inventory.GuitarPickups, s => s.Name);

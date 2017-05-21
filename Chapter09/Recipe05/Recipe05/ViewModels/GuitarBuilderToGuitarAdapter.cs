@@ -18,7 +18,7 @@ namespace Recipe05.ViewModels
                 NeckPickup = SelectPickUp(viewModel.Inventory, viewModel.SelectedNeckPickup),
                 Body = viewModel.Inventory?.GuitarBodies?.FirstOrDefault(a => a.Name == viewModel.SelectedBody),
                 Strings = (from gs in viewModel.Inventory.GuitarStrings
-                           where viewModel.SelectedStrings.Contains(gs.Name)
+                           where viewModel.SelectedStrings!=null && viewModel.SelectedStrings.Contains(gs.Name)
                            select gs).ToList()
             };
             return guitar;
