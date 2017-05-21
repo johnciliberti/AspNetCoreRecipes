@@ -5,8 +5,10 @@ namespace Recipe01.ViewModels
 {
     public class TShirtViewModel
     {
+        const string EmailAddressRegEx = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+        const string LettersOnlyRegEx = @"^[A-Z]+[a-zA-Z''-'\s]*$";
+
         [ScaffoldColumn(false)]
-        [Key]
         public int TShirtId { get; set; }
 
         [Display(Name ="Start selling this item on:", Order = 3)]
@@ -24,7 +26,7 @@ namespace Recipe01.ViewModels
         [Required]
         [Display(Name ="T-Shirt Name", Order = 1)]
         [StringLength(30, MinimumLength = 6, ErrorMessage ="T-Shirt Name must have at least 6 characters but no more then 30." )]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$", ErrorMessage = "The T-Shirt name can only contain letters")]
+        [RegularExpression(LettersOnlyRegEx, ErrorMessage = "The T-Shirt name can only contain letters")]
         public string Title { get; set; }
 
         [Required]
@@ -36,10 +38,11 @@ namespace Recipe01.ViewModels
         [Required]
         [Range(5,100)]
         [DataType(DataType.Currency)]
-        public decimal Price { get; set; } = 5;
+        public decimal Price { get; set; }
 
         [StringLength(50)]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(EmailAddressRegEx, ErrorMessage ="Invalid email address.")]
         public string SellerEmailAddress { get; set; }
 
         [StringLength(50)]
@@ -51,7 +54,7 @@ namespace Recipe01.ViewModels
         [Display(Name ="Accept to the terms and conditions.")]
         // The below will not work
         //[Range(typeof(bool), "true", "true", ErrorMessage = "You must accept the terms and conditions.")]
-        public bool AgreeToTermsAndConditions { get; set; } = true;
+        public bool AgreeToTermsAndConditions { get; set; }
 
 
     }

@@ -27,7 +27,7 @@ namespace Recipe03.Models
         {
             if(EndDate.CompareTo(StartDate)<= 0)
             {
-                yield return new ValidationResult("The End Date must be after the start date.");
+                yield return new ValidationResult("The end date must be after the start date.");
             }
         }
     }

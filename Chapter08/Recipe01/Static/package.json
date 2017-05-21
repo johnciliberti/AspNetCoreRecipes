@@ -1,0 +1,11 @@
+{
+  "name": "chapter08-recipe02",
+  "version": "0.1.0",
+  "description": "Static file project for chapter08 recipe02",
+  "author": "John Ciliberti",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-copy" : "1.0.0"
+
+  }
+}

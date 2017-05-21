@@ -1,0 +1,101 @@
+﻿@model Recipe04.Models.CollaborationSpaceSearchResultModel
+@{
+    ViewData["Title"] = "ASP.NET Core MVC Recipes Data Grid";
+}
+
+<h1>Data Grid Example</h1>
+<p>
+    This example shows how you could replace the GridView control when used as a read only list that supports filtering and
+    paging and sorting. 
+</p>
+
+<h3>@Model.ResultsDescription</h3>
+<div class="row">
+    <div class="col-lg-2 col-md-2">
+        <h4>Refine By Genres</h4>
+        <ul class="list list-unstyled">
+            @foreach (var item in Model.GenreLookUpList)
+            {
+                <li>
+                    <a href="@Url.Action("Index",
+                    new { Genres = item.GenreLookUpId , Page = 1,
+                    SortExpression = Model.SortExpression })">
+                        @if (Model.GenreLookUpId == item.GenreLookUpId)
+                        {
+                            <span class="glyphicon glyphicon-check"></span>
+                        }
+                        else
+                        {
+                            <span class="glyphicon glyphicon-unchecked"></span>
+                        }
+                        @item.GenreName
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-lg-10 col-md-10">
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    <a asp-action="Index" 
+                       asp-route-Genres="@Model.GenreLookUpId" 
+                       asp-route-Page="1" 
+                       asp-route-SortExpression="Title">Collaboration Space</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                       asp-route-Genres="@Model.GenreLookUpId"
+                       asp-route-Page="1"
+                       asp-route-SortExpression="UserName">Artist</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                       asp-route-Genres="@Model.GenreLookUpId"
+                       asp-route-Page="1"
+                       asp-route-SortExpression="CreateDate">Created</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                       asp-route-Genres="@Model.GenreLookUpId"
+                       asp-route-Page="1"
+                       asp-route-SortExpression="ModifiedDate">Modified</a>
+                </th>
+                <th>
+                    <a asp-action="Index"
+                       asp-route-Genres="@Model.GenreLookUpId"
+                       asp-route-Page="1"
+                       asp-route-SortExpression="NumberViews">Stats</a>
+                </th>
+            </tr>
+            @foreach (var item in Model.CollaborationSpaceSearchResults)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.UserName</td>
+                    <td>@item.CreateDate.ToString("MM/dd/yyyy")</td>
+                    <td>@item.ModifiedDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        <ul class="ItemList">
+                            <li>
+                                Hits: @item.NumberViews
+                            </li>
+                            <li>
+                                Posts: @item.NumberComments
+                            </li>
+                            <li>
+                                Status: @item.Status
+                            </li>
+                        </ul>
+
+                    </td>
+                </tr>
+            }
+        </table>
+        <nav>
+            <grid-pager asp-total-number-of-results="@Model.NumberOfResults"
+                        asp-items-per-page="@Model.ItemsPerPage"
+                        asp-current-page="@Model.CurrentPage"></grid-pager>
+        </nav>
+    </div>
+</div>

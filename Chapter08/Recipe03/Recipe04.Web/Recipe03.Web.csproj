@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\media\Avatars\Sample1.JPG" />
+    <Content Include="wwwroot\media\Avatars\Sample10.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample11.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample12.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample13.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample14.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample15.JPG" />
+    <Content Include="wwwroot\media\Avatars\Sample16.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample17.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample18.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample19.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample2.JPG" />
+    <Content Include="wwwroot\media\Avatars\Sample20.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample3.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample4.JPG" />
+    <Content Include="wwwroot\media\Avatars\Sample5.JPG" />
+    <Content Include="wwwroot\media\Avatars\Sample6.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample7.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample8.jpg" />
+    <Content Include="wwwroot\media\Avatars\Sample9.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="1.1.0-preview4-final" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Shared.DataAccess" Version="1.0.6-Alpha" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

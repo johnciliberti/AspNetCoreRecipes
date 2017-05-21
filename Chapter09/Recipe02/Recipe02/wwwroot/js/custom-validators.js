@@ -21,7 +21,14 @@
     $.validator.unobtrusive.adapters.add('confirmvalue',
         ['expectedvalue'],
         function (options) {
-            options.rules['confirmvalue'] = { expectedvalue : options.params['expectedvalue'] };
+            // Add validation rule for HTML elements that contain data-confirmvalue attribute
+            options.rules['confirmvalue'] = {
+                // pass the data from data-confirmvalue-expectedvalue to 
+                // the params argument of the confirmvalue method
+                expectedvalue: options.params['expectedvalue']
+            };
+            // get the error message from data-confirmvalue-expectedvalue
+            // so that unobtrusive validation can use it when validation rule fails
             options.messages['confirmvalue'] = options.message;
         });
 }(jQuery));

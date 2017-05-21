@@ -10,7 +10,7 @@ namespace Recipe05.Data
         {
             new GuitarBody {
                 Name = "Red Les Paul",
-                AllowBridePickup =true,
+                AllowBridgePickup =true,
                 AllowMiddlePickup =false,
                 AllowNeckPickup = true,
                 BodyType = BodyType.SolidBody,
@@ -21,7 +21,7 @@ namespace Recipe05.Data
             },
             new GuitarBody {
                 Name = "Green Strat",
-                AllowBridePickup =true,
+                AllowBridgePickup =true,
                 AllowMiddlePickup =true,
                 AllowNeckPickup = true,
                 BodyType = BodyType.SolidBody,
