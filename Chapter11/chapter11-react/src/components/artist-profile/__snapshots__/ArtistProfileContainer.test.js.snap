@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistProfileContainer ArtistProfileContainer Matches Snapshot 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-12"
+    >
+      <div
+        className="artist-profile"
+      >
+        <img
+          alt="Artist profile large background"
+          className="artist-profile-banner"
+          src="/images/SampleBackground1.jpg"
+        />
+        <img
+          alt="Artist Avatar"
+          className="artist-profile-image img-circle img-thumbnail"
+          src="/images/profileSample.jpg"
+        />
+        <div
+          className="artist-profile-text"
+        >
+          <h1>
+            ArtistFirst ArtistLast
+          </h1>
+          <p>
+            Artist Bio. Blaa blaa blaa ...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-12"
+    >
+      <h2>
+        Collaboration Projects
+      </h2>
+      <table
+        className="table table-striped"
+      >
+        <thead>
+          <tr>
+            <th>
+              Project Name
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Created
+            </th>
+            <th>
+              Modified
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Project 1
+            </td>
+            <td>
+              Recruiting / Idea Exchange
+            </td>
+            <td>
+              12/28/2016
+            </td>
+            <td>
+              1/2/2017
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Project 2
+            </td>
+            <td>
+              Mixing
+            </td>
+            <td>
+              12/28/2016
+            </td>
+            <td>
+              1/2/2017
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
