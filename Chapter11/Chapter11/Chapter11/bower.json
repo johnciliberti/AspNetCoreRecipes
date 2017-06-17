@@ -1,0 +1,13 @@
+{
+  "name": "ASP.NET Core Recipes Chapter 11",
+  "authors": [ "John Ciliberti" ],
+  "description": "This is a chapter that shows how ASP.NET Core can work together with advanced front-end frameworks",
+  "homepage": "http://ciliberti.info/",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6"
+  }
+}
