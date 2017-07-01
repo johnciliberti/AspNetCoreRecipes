@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "name": "chapter11",
+  "description": "Demonstration of how to modify Bower configuration",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-copy": "1.0.0"
+  }
+}
